@@ -26,6 +26,8 @@
     self.hostName = [settings valueForKey:@"hostName"];
     self.port = [NSNumber numberWithInteger:[[settings valueForKey:@"port"] integerValue]];
 
+    self.debugMode = [[settings valueForKey:@"debugMode"] boolValue];
+
     return [self areLoadedSettingsValid];
 }
 - (BOOL)areLoadedSettingsValid

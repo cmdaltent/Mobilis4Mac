@@ -17,6 +17,7 @@
 @interface LoggingService : NSObject
 
 @property (weak, nonatomic) id<LoggingServiceDelegate> delegate;
+@property BOOL debugMode;
 
 + (instancetype)sharedInstance;
 

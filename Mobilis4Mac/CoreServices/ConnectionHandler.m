@@ -12,6 +12,7 @@
 #import "XMPPStream.h"
 #import "XMPPPresence.h"
 #import "LoggingService.h"
+#import "XMPPElement.h"
 
 @interface ConnectionHandler () <XMPPStreamDelegate>
 
@@ -77,9 +78,17 @@
 - (void)goOnline
 {
     XMPPPresence *presence = [XMPPPresence presence];
-    [self.xmppStream sendElement:presence];
+    [self send:presence];
 
     // TODO: Notify someone that connection establishment was successful.
+}
+
+#pragma mark - Pubic Interface
+
+- (void)send:(XMPPElement *)element
+{
+    [[LoggingService sharedInstance] logString:[element XMLString]];
+    [self.xmppStream sendElement:element];
 }
 
 #pragma mark - XMPPStreamDelegate

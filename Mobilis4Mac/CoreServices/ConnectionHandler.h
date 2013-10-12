@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class XMPPJID;
+@class XMPPElement;
 
 @interface ConnectionHandler : NSObject
 
@@ -20,5 +21,7 @@
 + (id)connectionWithJabberID:(NSString *)jabberID password:(NSString *)password hostName:(NSString *)hostName port:(NSNumber *)port;
 
 - (id)initConnectionWithJabberID:(NSString *)jabberID password:(NSString *)password hostName:(NSString *)hostName port:(NSNumber *)port;
+
+- (void)send:(XMPPElement *)element;
 
 @end

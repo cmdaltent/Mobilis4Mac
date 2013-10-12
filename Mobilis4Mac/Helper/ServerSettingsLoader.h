@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSString *password;
 @property (strong, nonatomic) NSString *hostName;
 @property (strong, nonatomic) NSNumber *port;
+@property BOOL debugMode;
 
 - (BOOL)loadSettings;
 - (BOOL)loadSettingsFromFile:(NSString *)filePath;

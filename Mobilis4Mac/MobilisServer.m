@@ -10,6 +10,7 @@
 
 #import "ServerSettingsLoader.h"
 #import "Agent.h"
+#import "LoggingService.h"
 
 @interface MobilisServer ()
 
@@ -41,6 +42,8 @@
 }
 - (void)setupAgentWithLoadedSettings:(ServerSettingsLoader *)loader
 {
+    [[LoggingService sharedInstance] setDebugMode:loader.debugMode];
+
     self.agent = [[Agent alloc] initWithJabberID:loader.jabberID
                                         password:loader.password
                                         hostName:loader.hostName

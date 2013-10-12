@@ -19,6 +19,8 @@
 
 @implementation LoggingService
 
+static void* KVOContext;
+
 #pragma mark - Singleton Stack
 
 + (instancetype)sharedInstance
@@ -27,6 +29,10 @@
     __strong static LoggingService *shared = nil;
     dispatch_once(&onceToken, ^{
         shared = [[self alloc] initUniqueInstance];
+        [self addObserver:shared
+               forKeyPath:@"debugMode"
+                  options:NSKeyValueObservingOptionNew
+                  context:KVOContext];
     });
     return shared;
 }
@@ -42,7 +48,9 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^
     {
-        [self logToConsole:stringMessage];
+        if (self.debugMode) {
+            [self logToConsole:stringMessage];
+        }
         [self logToDelegate:stringMessage];
     });
 }
@@ -65,6 +73,15 @@
 - (NSString *)appendLineBreak:(NSString *)string
 {
     return [NSString stringWithFormat:@"%@\n", string];
+}
+
+#pragma mark - KVO Compliance
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == KVOContext) {
+        [self logString:[NSString stringWithFormat:@"Debug Mode changed to %i", self.debugMode]];
+    }
 }
 
 @end
