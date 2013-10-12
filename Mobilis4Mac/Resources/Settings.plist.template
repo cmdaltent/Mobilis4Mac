@@ -10,5 +10,7 @@
 	<string>aHost, i.e. "localhost"</string>
 	<key>port</key>
 	<string>5222</string>
+	<key>debugMode</key>
+    <string>0</string>
 </dict>
 </plist>
