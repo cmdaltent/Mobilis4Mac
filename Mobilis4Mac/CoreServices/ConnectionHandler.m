@@ -11,6 +11,7 @@
 #import "XMPPJID.h"
 #import "XMPPStream.h"
 #import "XMPPPresence.h"
+#import "LoggingService.h"
 
 @interface ConnectionHandler () <XMPPStreamDelegate>
 
@@ -67,6 +68,8 @@
     NSError *error = nil;
     if (![self.xmppStream connectWithTimeout:30.0 error:&error]) {
         // TODO: Error Log here!!!
+        NSString *logMessage = [NSString stringWithFormat:@"Connection to %@ could not be established. Timeout after 30s", self.hostName];
+        [[LoggingService sharedInstance] logString:logMessage];
     }
 }
 
@@ -92,15 +95,13 @@
 
 - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender
 {
-    // TODO: implement Log here!!!
-    NSLog(@"xmppStreamdidAuthenticate:");
+    [[LoggingService sharedInstance] logString:[NSString stringWithFormat:@"Authentication of: %@", [self.jabberID full]]];
     [self goOnline];
 }
 
 - (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(NSXMLElement *)error
 {
-    // TODO: implement Log here!!!
-    NSLog(@"xmppStreamDidNotAuthenticate:");
+    [[LoggingService sharedInstance] logString:[NSString stringWithFormat:@"%@ could not be authenticated", [self.jabberID full]]];
 }
 
 @end

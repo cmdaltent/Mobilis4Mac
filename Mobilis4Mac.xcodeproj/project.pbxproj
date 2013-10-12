@@ -19,6 +19,7 @@
 		BF8CB7B7DB280D84E44A8AAF /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF8CB7E4FC181C00270C0DA0 /* Settings.plist */; };
 		BF8CB8AF8AA0AC188BB13A57 /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB86FACBD76536EFD5A44 /* Agent.m */; };
 		BF8CB9BA31D8A6230D9BE0CE /* Settings.plist.template in Resources */ = {isa = PBXBuildFile; fileRef = BF8CB79DC19B5FA89BD01311 /* Settings.plist.template */; };
+		BF8CBB5D28BEF70496A5E16D /* LoggingService.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CBC41D49203182B92E231 /* LoggingService.m */; };
 		BF8CBD396E80970803D5C19F /* ServerSettingsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB937585E02B41FE712E2 /* ServerSettingsLoader.m */; };
 		BF8CBF89FD89E7379C65F9D0 /* ConnectionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB8B2214E51F9AD9196A0 /* ConnectionHandler.m */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		5BA1E7801807E89A0030C1FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5BA1E7821807E89A0030C1FF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BF8CB0526922F34AC446AE77 /* Agent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agent.h; sourceTree = "<group>"; };
+		BF8CB08D1F4AB70D37D31E61 /* LoggingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingService.h; sourceTree = "<group>"; };
 		BF8CB3AD68C5DCA3531592AD /* ServerSettingsLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerSettingsLoader.h; sourceTree = "<group>"; };
 		BF8CB3B550810FCCCA45ADF6 /* MobilisServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilisServer.h; sourceTree = "<group>"; };
 		BF8CB798F14E8DBBE4739AB7 /* MobilisServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilisServer.m; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 		BF8CB8B2214E51F9AD9196A0 /* ConnectionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionHandler.m; sourceTree = "<group>"; };
 		BF8CB937585E02B41FE712E2 /* ServerSettingsLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerSettingsLoader.m; sourceTree = "<group>"; };
 		BF8CB9E4E5A276A0F4518894 /* ConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionHandler.h; sourceTree = "<group>"; };
+		BF8CBC41D49203182B92E231 /* LoggingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingService.m; sourceTree = "<group>"; };
 		BF8EC17DFE8A448788A6EB93 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -146,6 +149,8 @@
 			children = (
 				BF8CB937585E02B41FE712E2 /* ServerSettingsLoader.m */,
 				BF8CB3AD68C5DCA3531592AD /* ServerSettingsLoader.h */,
+				BF8CBC41D49203182B92E231 /* LoggingService.m */,
+				BF8CB08D1F4AB70D37D31E61 /* LoggingService.h */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				BF8CBF89FD89E7379C65F9D0 /* ConnectionHandler.m in Sources */,
 				BF8CB73F04ABEF48A5EC273E /* MobilisServer.m in Sources */,
 				BF8CBD396E80970803D5C19F /* ServerSettingsLoader.m in Sources */,
+				BF8CBB5D28BEF70496A5E16D /* LoggingService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
