@@ -8,12 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class MainWindowController;
+
 @class MobilisServer;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
-
 @property (strong) MobilisServer *mobilisServer;
+
+@property (strong, nonatomic) MainWindowController *mainWindowController;
 
 @end

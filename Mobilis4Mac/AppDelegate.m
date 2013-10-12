@@ -7,14 +7,34 @@
 //
 
 #import "AppDelegate.h"
+
+#import "MainWindowController.h"
+
 #import "MobilisServer.h"
+
+@interface AppDelegate ()
+
+- (void)setupAndShowMainWindow;
+
+@end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [self setupAndShowMainWindow];
+    
     self.mobilisServer = [MobilisServer new];
     [self.mobilisServer launchServer];
+}
+
+#pragma mark - User Interface Handling
+
+- (void)setupAndShowMainWindow
+{
+    self.mainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
+    [self.mainWindowController.window makeKeyAndOrderFront:self];
+    [self.mainWindowController showWindow:self];
 }
 
 @end

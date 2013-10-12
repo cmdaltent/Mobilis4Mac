@@ -25,8 +25,6 @@
 {
 #warning The launchServer method is not completely implemented!
     [self loadServerSettings];
-
-    NSLog(@"Conection establishement launched.");
 }
 
 #pragma mark - Startup Helper

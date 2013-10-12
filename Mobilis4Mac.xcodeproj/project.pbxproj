@@ -14,6 +14,8 @@
 		5BA1E77E1807E89A0030C1FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1E77D1807E89A0030C1FF /* AppDelegate.m */; };
 		5BA1E7811807E89A0030C1FF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1E77F1807E89A0030C1FF /* MainMenu.xib */; };
 		5BA1E7831807E89A0030C1FF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1E7821807E89A0030C1FF /* Images.xcassets */; };
+		5BF6BEBA1809AF0900658454 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF6BEB91809AF0900658454 /* MainWindow.xib */; };
+		5BF6BEBD1809AF3700658454 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6BEBC1809AF3700658454 /* MainWindowController.m */; };
 		B88CB41D32D24E90BCE096BB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8EC17DFE8A448788A6EB93 /* libPods.a */; };
 		BF8CB73F04ABEF48A5EC273E /* MobilisServer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB798F14E8DBBE4739AB7 /* MobilisServer.m */; };
 		BF8CB7B7DB280D84E44A8AAF /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF8CB7E4FC181C00270C0DA0 /* Settings.plist */; };
@@ -40,6 +42,9 @@
 		5BA1E77D1807E89A0030C1FF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5BA1E7801807E89A0030C1FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5BA1E7821807E89A0030C1FF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5BF6BEB91809AF0900658454 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		5BF6BEBB1809AF3700658454 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainWindowController.h; path = UIController/MainWindowController.h; sourceTree = "<group>"; };
+		5BF6BEBC1809AF3700658454 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = UIController/MainWindowController.m; sourceTree = "<group>"; };
 		BF8CB0526922F34AC446AE77 /* Agent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agent.h; sourceTree = "<group>"; };
 		BF8CB08D1F4AB70D37D31E61 /* LoggingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingService.h; sourceTree = "<group>"; };
 		BF8CB3AD68C5DCA3531592AD /* ServerSettingsLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerSettingsLoader.h; sourceTree = "<group>"; };
@@ -119,6 +124,8 @@
 				BF8CB3B550810FCCCA45ADF6 /* MobilisServer.h */,
 				BF8CB2BBD07EB261A9EE04C7 /* Resources */,
 				BF8CB8822190553D389F7BC1 /* Helper */,
+				5BF6BEB91809AF0900658454 /* MainWindow.xib */,
+				5BF6BEBE1809AF3D00658454 /* UIController */,
 			);
 			path = Mobilis4Mac;
 			sourceTree = "<group>";
@@ -133,6 +140,15 @@
 				5BA1E7791807E89A0030C1FF /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5BF6BEBE1809AF3D00658454 /* UIController */ = {
+			isa = PBXGroup;
+			children = (
+				5BF6BEBB1809AF3700658454 /* MainWindowController.h */,
+				5BF6BEBC1809AF3700658454 /* MainWindowController.m */,
+			);
+			name = UIController;
 			sourceTree = "<group>";
 		};
 		BF8CB2BBD07EB261A9EE04C7 /* Resources */ = {
@@ -208,8 +224,6 @@
 			mainGroup = 5BA1E75E1807E89A0030C1FF;
 			productRefGroup = 5BA1E7681807E89A0030C1FF /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-			);
 			projectRoot = "";
 			targets = (
 				5BA1E7661807E89A0030C1FF /* Mobilis4Mac */,
@@ -222,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BF6BEBA1809AF0900658454 /* MainWindow.xib in Resources */,
 				5BA1E7751807E89A0030C1FF /* InfoPlist.strings in Resources */,
 				5BA1E7831807E89A0030C1FF /* Images.xcassets in Resources */,
 				5BA1E77B1807E89A0030C1FF /* Credits.rtf in Resources */,
@@ -273,6 +288,7 @@
 			files = (
 				5BA1E77E1807E89A0030C1FF /* AppDelegate.m in Sources */,
 				5BA1E7771807E89A0030C1FF /* main.m in Sources */,
+				5BF6BEBD1809AF3700658454 /* MainWindowController.m in Sources */,
 				BF8CB8AF8AA0AC188BB13A57 /* Agent.m in Sources */,
 				BF8CBF89FD89E7379C65F9D0 /* ConnectionHandler.m in Sources */,
 				BF8CB73F04ABEF48A5EC273E /* MobilisServer.m in Sources */,
@@ -428,6 +444,7 @@
 				5BA1E79A1807E89A0030C1FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -13,6 +13,8 @@
 - (void)logToConsole:(NSString *)stringMessage;
 - (void)logToDelegate:(NSString *)stringMessage;
 
+- (NSString *)appendLineBreak:(NSString *)string;
+
 @end
 
 @implementation LoggingService
@@ -45,17 +47,24 @@
     });
 }
 
-#pragma mark - Private Helper
+#pragma mark - Private Logging Helper
 
 - (void)logToConsole:(NSString *)stringMessage
 {
-    NSLog(@"%@", stringMessage);
+    NSLog(@"%@", [self appendLineBreak:stringMessage]);
 }
 
 - (void)logToDelegate:(NSString *)stringMessage
 {
     if (self.delegate && stringMessage && ![stringMessage isEqualToString:@""])
-        [self.delegate logString:stringMessage];
+        [self.delegate logString:[self appendLineBreak:stringMessage]];
+}
+
+#pragma mark - String Modifications
+
+- (NSString *)appendLineBreak:(NSString *)string
+{
+    return [NSString stringWithFormat:@"%@\n", string];
 }
 
 @end

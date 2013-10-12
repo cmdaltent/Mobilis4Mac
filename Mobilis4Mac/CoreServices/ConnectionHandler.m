@@ -65,9 +65,10 @@
     [self.xmppStream setHostName:self.hostName];
     [self.xmppStream setHostPort:(UInt16)[self.port integerValue]];
 
+    [[LoggingService sharedInstance] logString:@"ConnectionHandler connect: launched."];
+    
     NSError *error = nil;
     if (![self.xmppStream connectWithTimeout:30.0 error:&error]) {
-        // TODO: Error Log here!!!
         NSString *logMessage = [NSString stringWithFormat:@"Connection to %@ could not be established. Timeout after 30s", self.hostName];
         [[LoggingService sharedInstance] logString:logMessage];
     }
