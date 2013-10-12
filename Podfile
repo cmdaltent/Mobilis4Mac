@@ -1,0 +1,6 @@
+platform :osx, '10.7'
+pod 'XMPPFramework/Core', :podspec => 'xmpp.podspec'
+pod 'XMPPFramework/Reconnect', :podspec => 'xmpp.podspec'
+pod 'XMPPFramework/XEP-0045', :podspec => 'xmpp.podspec'
+pod 'XMPPFramework/Roster', :podspec => 'xmpp.podspec'
+#pod 'MobilisMXi', :podspec => 'mxi.podspec'

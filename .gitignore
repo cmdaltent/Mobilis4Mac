@@ -1,0 +1,11 @@
+.idea
+.DS_Store
+Pods/
+
+Settings.plist
+Podfile.lock
+
+Mobilis4Mac.xcworkspace
+.xcworkspacedata
+project.xcworkspace
+xcuserdata/

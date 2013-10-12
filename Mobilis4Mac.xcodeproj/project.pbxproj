@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5BA1E76B1807E89A0030C1FF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA1E76A1807E89A0030C1FF /* Cocoa.framework */; };
+		5BA1E7751807E89A0030C1FF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1E7731807E89A0030C1FF /* InfoPlist.strings */; };
+		5BA1E7771807E89A0030C1FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1E7761807E89A0030C1FF /* main.m */; };
+		5BA1E77B1807E89A0030C1FF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1E7791807E89A0030C1FF /* Credits.rtf */; };
+		5BA1E77E1807E89A0030C1FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1E77D1807E89A0030C1FF /* AppDelegate.m */; };
+		5BA1E7811807E89A0030C1FF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1E77F1807E89A0030C1FF /* MainMenu.xib */; };
+		5BA1E7831807E89A0030C1FF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1E7821807E89A0030C1FF /* Images.xcassets */; };
+		B88CB41D32D24E90BCE096BB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8EC17DFE8A448788A6EB93 /* libPods.a */; };
+		BF8CB73F04ABEF48A5EC273E /* MobilisServer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB798F14E8DBBE4739AB7 /* MobilisServer.m */; };
+		BF8CB7B7DB280D84E44A8AAF /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF8CB7E4FC181C00270C0DA0 /* Settings.plist */; };
+		BF8CB8AF8AA0AC188BB13A57 /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB86FACBD76536EFD5A44 /* Agent.m */; };
+		BF8CB9BA31D8A6230D9BE0CE /* Settings.plist.template in Resources */ = {isa = PBXBuildFile; fileRef = BF8CB79DC19B5FA89BD01311 /* Settings.plist.template */; };
+		BF8CBD396E80970803D5C19F /* ServerSettingsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB937585E02B41FE712E2 /* ServerSettingsLoader.m */; };
+		BF8CBF89FD89E7379C65F9D0 /* ConnectionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB8B2214E51F9AD9196A0 /* ConnectionHandler.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		023363BB9CB64466A2849E3A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		5BA1E7671807E89A0030C1FF /* Mobilis4Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobilis4Mac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BA1E76A1807E89A0030C1FF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		5BA1E76D1807E89A0030C1FF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		5BA1E76E1807E89A0030C1FF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5BA1E76F1807E89A0030C1FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5BA1E7721807E89A0030C1FF /* Mobilis4Mac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mobilis4Mac-Info.plist"; sourceTree = "<group>"; };
+		5BA1E7741807E89A0030C1FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5BA1E7761807E89A0030C1FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5BA1E7781807E89A0030C1FF /* Mobilis4Mac-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mobilis4Mac-Prefix.pch"; sourceTree = "<group>"; };
+		5BA1E77A1807E89A0030C1FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		5BA1E77C1807E89A0030C1FF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5BA1E77D1807E89A0030C1FF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5BA1E7801807E89A0030C1FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		5BA1E7821807E89A0030C1FF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BF8CB0526922F34AC446AE77 /* Agent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agent.h; sourceTree = "<group>"; };
+		BF8CB3AD68C5DCA3531592AD /* ServerSettingsLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerSettingsLoader.h; sourceTree = "<group>"; };
+		BF8CB3B550810FCCCA45ADF6 /* MobilisServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilisServer.h; sourceTree = "<group>"; };
+		BF8CB798F14E8DBBE4739AB7 /* MobilisServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilisServer.m; sourceTree = "<group>"; };
+		BF8CB79DC19B5FA89BD01311 /* Settings.plist.template */ = {isa = PBXFileReference; lastKnownFileType = file.template; path = Settings.plist.template; sourceTree = "<group>"; };
+		BF8CB7E4FC181C00270C0DA0 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Settings.plist; sourceTree = "<group>"; };
+		BF8CB86FACBD76536EFD5A44 /* Agent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agent.m; sourceTree = "<group>"; };
+		BF8CB8B2214E51F9AD9196A0 /* ConnectionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionHandler.m; sourceTree = "<group>"; };
+		BF8CB937585E02B41FE712E2 /* ServerSettingsLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerSettingsLoader.m; sourceTree = "<group>"; };
+		BF8CB9E4E5A276A0F4518894 /* ConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionHandler.h; sourceTree = "<group>"; };
+		BF8EC17DFE8A448788A6EB93 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5BA1E7641807E89A0030C1FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BA1E76B1807E89A0030C1FF /* Cocoa.framework in Frameworks */,
+				B88CB41D32D24E90BCE096BB /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5BA1E75E1807E89A0030C1FF = {
+			isa = PBXGroup;
+			children = (
+				5BA1E7701807E89A0030C1FF /* Mobilis4Mac */,
+				5BA1E7691807E89A0030C1FF /* Frameworks */,
+				5BA1E7681807E89A0030C1FF /* Products */,
+				023363BB9CB64466A2849E3A /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		5BA1E7681807E89A0030C1FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5BA1E7671807E89A0030C1FF /* Mobilis4Mac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5BA1E7691807E89A0030C1FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5BA1E76A1807E89A0030C1FF /* Cocoa.framework */,
+				5BA1E76C1807E89A0030C1FF /* Other Frameworks */,
+				BF8EC17DFE8A448788A6EB93 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5BA1E76C1807E89A0030C1FF /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5BA1E76D1807E89A0030C1FF /* AppKit.framework */,
+				5BA1E76E1807E89A0030C1FF /* CoreData.framework */,
+				5BA1E76F1807E89A0030C1FF /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		5BA1E7701807E89A0030C1FF /* Mobilis4Mac */ = {
+			isa = PBXGroup;
+			children = (
+				5BA1E77C1807E89A0030C1FF /* AppDelegate.h */,
+				5BA1E77D1807E89A0030C1FF /* AppDelegate.m */,
+				5BA1E77F1807E89A0030C1FF /* MainMenu.xib */,
+				5BA1E7821807E89A0030C1FF /* Images.xcassets */,
+				5BA1E7711807E89A0030C1FF /* Supporting Files */,
+				BF8CB88C7D231F8489077F01 /* CoreServices */,
+				BF8CB798F14E8DBBE4739AB7 /* MobilisServer.m */,
+				BF8CB3B550810FCCCA45ADF6 /* MobilisServer.h */,
+				BF8CB2BBD07EB261A9EE04C7 /* Resources */,
+				BF8CB8822190553D389F7BC1 /* Helper */,
+			);
+			path = Mobilis4Mac;
+			sourceTree = "<group>";
+		};
+		5BA1E7711807E89A0030C1FF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5BA1E7721807E89A0030C1FF /* Mobilis4Mac-Info.plist */,
+				5BA1E7731807E89A0030C1FF /* InfoPlist.strings */,
+				5BA1E7761807E89A0030C1FF /* main.m */,
+				5BA1E7781807E89A0030C1FF /* Mobilis4Mac-Prefix.pch */,
+				5BA1E7791807E89A0030C1FF /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF8CB2BBD07EB261A9EE04C7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BF8CB7E4FC181C00270C0DA0 /* Settings.plist */,
+				BF8CB79DC19B5FA89BD01311 /* Settings.plist.template */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BF8CB8822190553D389F7BC1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BF8CB937585E02B41FE712E2 /* ServerSettingsLoader.m */,
+				BF8CB3AD68C5DCA3531592AD /* ServerSettingsLoader.h */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		BF8CB88C7D231F8489077F01 /* CoreServices */ = {
+			isa = PBXGroup;
+			children = (
+				BF8CB86FACBD76536EFD5A44 /* Agent.m */,
+				BF8CB0526922F34AC446AE77 /* Agent.h */,
+				BF8CB8B2214E51F9AD9196A0 /* ConnectionHandler.m */,
+				BF8CB9E4E5A276A0F4518894 /* ConnectionHandler.h */,
+			);
+			path = CoreServices;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5BA1E7661807E89A0030C1FF /* Mobilis4Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BA1E7981807E89A0030C1FF /* Build configuration list for PBXNativeTarget "Mobilis4Mac" */;
+			buildPhases = (
+				AB1249A5A89B4E96A8282002 /* Check Pods Manifest.lock */,
+				5BA1E7631807E89A0030C1FF /* Sources */,
+				5BA1E7641807E89A0030C1FF /* Frameworks */,
+				5BA1E7651807E89A0030C1FF /* Resources */,
+				D1CC4D46BC474C6ABDCB88E7 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mobilis4Mac;
+			productName = Mobilis4Mac;
+			productReference = 5BA1E7671807E89A0030C1FF /* Mobilis4Mac.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5BA1E75F1807E89A0030C1FF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Technische Universität Dresden";
+			};
+			buildConfigurationList = 5BA1E7621807E89A0030C1FF /* Build configuration list for PBXProject "Mobilis4Mac" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5BA1E75E1807E89A0030C1FF;
+			productRefGroup = 5BA1E7681807E89A0030C1FF /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+			);
+			projectRoot = "";
+			targets = (
+				5BA1E7661807E89A0030C1FF /* Mobilis4Mac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5BA1E7651807E89A0030C1FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BA1E7751807E89A0030C1FF /* InfoPlist.strings in Resources */,
+				5BA1E7831807E89A0030C1FF /* Images.xcassets in Resources */,
+				5BA1E77B1807E89A0030C1FF /* Credits.rtf in Resources */,
+				5BA1E7811807E89A0030C1FF /* MainMenu.xib in Resources */,
+				BF8CB7B7DB280D84E44A8AAF /* Settings.plist in Resources */,
+				BF8CB9BA31D8A6230D9BE0CE /* Settings.plist.template in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AB1249A5A89B4E96A8282002 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D1CC4D46BC474C6ABDCB88E7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5BA1E7631807E89A0030C1FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BA1E77E1807E89A0030C1FF /* AppDelegate.m in Sources */,
+				5BA1E7771807E89A0030C1FF /* main.m in Sources */,
+				BF8CB8AF8AA0AC188BB13A57 /* Agent.m in Sources */,
+				BF8CBF89FD89E7379C65F9D0 /* ConnectionHandler.m in Sources */,
+				BF8CB73F04ABEF48A5EC273E /* MobilisServer.m in Sources */,
+				BF8CBD396E80970803D5C19F /* ServerSettingsLoader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5BA1E7731807E89A0030C1FF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BA1E7741807E89A0030C1FF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5BA1E7791807E89A0030C1FF /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BA1E77A1807E89A0030C1FF /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		5BA1E77F1807E89A0030C1FF /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BA1E7801807E89A0030C1FF /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5BA1E7961807E89A0030C1FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5BA1E7971807E89A0030C1FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5BA1E7991807E89A0030C1FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 023363BB9CB64466A2849E3A /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mobilis4Mac/Mobilis4Mac-Prefix.pch";
+				INFOPLIST_FILE = "Mobilis4Mac/Mobilis4Mac-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5BA1E79A1807E89A0030C1FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 023363BB9CB64466A2849E3A /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mobilis4Mac/Mobilis4Mac-Prefix.pch";
+				INFOPLIST_FILE = "Mobilis4Mac/Mobilis4Mac-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5BA1E7621807E89A0030C1FF /* Build configuration list for PBXProject "Mobilis4Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BA1E7961807E89A0030C1FF /* Debug */,
+				5BA1E7971807E89A0030C1FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BA1E7981807E89A0030C1FF /* Build configuration list for PBXNativeTarget "Mobilis4Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BA1E7991807E89A0030C1FF /* Debug */,
+				5BA1E79A1807E89A0030C1FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5BA1E75F1807E89A0030C1FF /* Project object */;
+}
