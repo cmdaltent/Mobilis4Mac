@@ -19,7 +19,7 @@
 
 @implementation LoggingService
 
-static void* KVOContext;
+static void* KVOContext = &KVOContext;
 
 #pragma mark - Singleton Stack
 
@@ -30,7 +30,7 @@ static void* KVOContext;
     dispatch_once(&onceToken, ^{
         shared = [[self alloc] initUniqueInstance];
         [self addObserver:shared
-               forKeyPath:@"debugMode"
+               forKeyPath:NSStringFromSelector(@selector(debugMode))
                   options:NSKeyValueObservingOptionNew
                   context:KVOContext];
     });
@@ -79,7 +79,7 @@ static void* KVOContext;
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if (context == KVOContext) {
+    if (context == KVOContext && [keyPath isEqualToString:NSStringFromSelector(@selector(debugMode))]) {
         [self logString:[NSString stringWithFormat:@"Debug Mode changed to %i", self.debugMode]];
     }
 }
