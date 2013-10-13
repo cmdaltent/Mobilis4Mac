@@ -189,6 +189,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BA1E7981807E89A0030C1FF /* Build configuration list for PBXNativeTarget "Mobilis4Mac" */;
 			buildPhases = (
+				5BA41892180AED4100083ADD /* Increment Build Number */,
+				5BA41893180AEF1A00083ADD /* App Version String */,
 				AB1249A5A89B4E96A8282002 /* Check Pods Manifest.lock */,
 				5BA1E7631807E89A0030C1FF /* Sources */,
 				5BA1E7641807E89A0030C1FF /* Frameworks */,
@@ -249,6 +251,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5BA41892180AED4100083ADD /* Increment Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build Number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/bin/git rev-list --count master)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+		5BA41893180AEF1A00083ADD /* App Version String */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "App Version String";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!bin/bash\nversionString = \"0.1\"\nif /usr/bin/git describe --exact-match --abbr=0\n    then versionString=$(/usr/bin/git describe --exact-match --abbr=0)\n    else versionString=\"0.1\"\nfi\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $versionString\" \"$INFOPLIST_FILE\"";
+		};
 		AB1249A5A89B4E96A8282002 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
