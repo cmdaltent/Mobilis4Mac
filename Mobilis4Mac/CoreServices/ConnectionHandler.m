@@ -13,6 +13,8 @@
 #import "XMPPPresence.h"
 #import "LoggingService.h"
 #import "MobilisXMPPStream.h"
+#import "XMPPIQ.h"
+#import "XMPPMessage.h"
 
 @interface ConnectionHandler () <XMPPStreamDelegate>
 
@@ -112,6 +114,27 @@
 - (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(NSXMLElement *)error
 {
     [[LoggingService sharedInstance] logString:[NSString stringWithFormat:@"%@ could not be authenticated", [self.jabberID full]]];
+}
+
+- (BOOL)xmppStream:(XMPPStream *)sender didReceiveIQ:(XMPPIQ *)iq
+{
+    [[LoggingService sharedInstance] logString:[iq XMLString]];
+    return YES;
+}
+
+- (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message
+{
+    [[LoggingService sharedInstance] logString:[message XMLString]];
+}
+
+- (void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence
+{
+    [[LoggingService sharedInstance] logString:[presence XMLString]];
+}
+
+- (void)xmppStream:(XMPPStream *)sender didReceiveError:(NSXMLElement *)error
+{
+    [[LoggingService sharedInstance] logString:[error XMLString]];
 }
 
 @end
