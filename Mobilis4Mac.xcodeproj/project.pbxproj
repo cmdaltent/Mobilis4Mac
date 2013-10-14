@@ -22,6 +22,7 @@
 		BF8CB8AF8AA0AC188BB13A57 /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB86FACBD76536EFD5A44 /* Agent.m */; };
 		BF8CB9BA31D8A6230D9BE0CE /* Settings.plist.template in Resources */ = {isa = PBXBuildFile; fileRef = BF8CB79DC19B5FA89BD01311 /* Settings.plist.template */; };
 		BF8CBB5D28BEF70496A5E16D /* LoggingService.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CBC41D49203182B92E231 /* LoggingService.m */; };
+		BF8CBCB66668F0679544E37E /* MobilisXMPPStream.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CBAEC18B1618FED59C0EA /* MobilisXMPPStream.m */; };
 		BF8CBD396E80970803D5C19F /* ServerSettingsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB937585E02B41FE712E2 /* ServerSettingsLoader.m */; };
 		BF8CBF89FD89E7379C65F9D0 /* ConnectionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB8B2214E51F9AD9196A0 /* ConnectionHandler.m */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,8 @@
 		BF8CB8B2214E51F9AD9196A0 /* ConnectionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionHandler.m; sourceTree = "<group>"; };
 		BF8CB937585E02B41FE712E2 /* ServerSettingsLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerSettingsLoader.m; sourceTree = "<group>"; };
 		BF8CB9E4E5A276A0F4518894 /* ConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionHandler.h; sourceTree = "<group>"; };
+		BF8CBAADC434675B17375D63 /* MobilisXMPPStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilisXMPPStream.h; sourceTree = "<group>"; };
+		BF8CBAEC18B1618FED59C0EA /* MobilisXMPPStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilisXMPPStream.m; sourceTree = "<group>"; };
 		BF8CBC41D49203182B92E231 /* LoggingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingService.m; sourceTree = "<group>"; };
 		BF8EC17DFE8A448788A6EB93 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -126,6 +129,7 @@
 				BF8CB8822190553D389F7BC1 /* Helper */,
 				5BF6BEB91809AF0900658454 /* MainWindow.xib */,
 				5BF6BEBE1809AF3D00658454 /* UIController */,
+				BF8CB30D50F89276EFDAE0DF /* XMPPFramework Subclasses */,
 			);
 			path = Mobilis4Mac;
 			sourceTree = "<group>";
@@ -158,6 +162,15 @@
 				BF8CB79DC19B5FA89BD01311 /* Settings.plist.template */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		BF8CB30D50F89276EFDAE0DF /* XMPPFramework Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				BF8CBAADC434675B17375D63 /* MobilisXMPPStream.h */,
+				BF8CBAEC18B1618FED59C0EA /* MobilisXMPPStream.m */,
+			);
+			path = "XMPPFramework Subclasses";
 			sourceTree = "<group>";
 		};
 		BF8CB8822190553D389F7BC1 /* Helper */ = {
@@ -324,6 +337,7 @@
 				BF8CB73F04ABEF48A5EC273E /* MobilisServer.m in Sources */,
 				BF8CBD396E80970803D5C19F /* ServerSettingsLoader.m in Sources */,
 				BF8CBB5D28BEF70496A5E16D /* LoggingService.m in Sources */,
+				BF8CBCB66668F0679544E37E /* MobilisXMPPStream.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

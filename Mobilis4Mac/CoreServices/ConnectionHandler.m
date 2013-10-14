@@ -12,11 +12,11 @@
 #import "XMPPStream.h"
 #import "XMPPPresence.h"
 #import "LoggingService.h"
-#import "XMPPElement.h"
+#import "MobilisXMPPStream.h"
 
 @interface ConnectionHandler () <XMPPStreamDelegate>
 
-@property (strong, nonatomic) XMPPStream *xmppStream;
+@property (strong, nonatomic) MobilisXMPPStream *xmppStream;
 @property dispatch_queue_t streamQueue;
 
 - (void)setUpStream;
