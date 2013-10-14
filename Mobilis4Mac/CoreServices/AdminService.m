@@ -7,6 +7,8 @@
 
 
 #import "AdminService.h"
+#import "MobilisService.h"
+#import "LoggingService.h"
 
 
 @implementation AdminService
@@ -27,5 +29,40 @@
 {
     return [self init];
 }
+
+#pragma mark - Public Interface
+
+- (void)installService:(MobilisService *)service
+{
+#warning Incomplete Implementation! AdminService installService:
+}
+
+- (void)copyService:(MobilisService *)service fromLocalURL:(NSURL *)location
+{
+    NSError *error = nil;
+    [[NSFileManager defaultManager] copyItemAtURL:location
+                                            toURL:[self serviceLocation:[service serviceName]]
+                                            error:&error];
+    if (error) {
+        [[LoggingService sharedInstance] logString:@"Service could not be copied to destination folder"];
+    } else {
+        [[LoggingService sharedInstance] logString:[NSString stringWithFormat:@"Service installation successfull at %@", [self serviceLocation:[service serviceName]]]];
+    }
+}
+
+- (NSURL *)serviceLocation:(NSString *)name
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+    NSString *path = nil;
+    if (paths.count >= 1) {
+        path = paths[0];
+    }
+
+
+    NSString *resolvedPath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"MobilisServer/Services/%@.bundle", name]];
+
+    return [[NSURL alloc] initFileURLWithPath:resolvedPath isDirectory:YES];
+}
+
 
 @end

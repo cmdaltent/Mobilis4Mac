@@ -21,6 +21,7 @@
 		B88CB41D32D24E90BCE096BB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8EC17DFE8A448788A6EB93 /* libPods.a */; };
 		BF8CB0D1B176549699DAF64F /* DeploymentService.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB2A77B201A7B9725372E /* DeploymentService.m */; };
 		BF8CB73F04ABEF48A5EC273E /* MobilisServer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB798F14E8DBBE4739AB7 /* MobilisServer.m */; };
+		BF8CB78E862C7CD061417D80 /* MobilisService.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB3BFF5CBE72CB7131054 /* MobilisService.m */; };
 		BF8CB7B7DB280D84E44A8AAF /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF8CB7E4FC181C00270C0DA0 /* Settings.plist */; };
 		BF8CB8AF8AA0AC188BB13A57 /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB86FACBD76536EFD5A44 /* Agent.m */; };
 		BF8CB9BA31D8A6230D9BE0CE /* Settings.plist.template in Resources */ = {isa = PBXBuildFile; fileRef = BF8CB79DC19B5FA89BD01311 /* Settings.plist.template */; };
@@ -59,9 +60,11 @@
 		BF8CB2A77B201A7B9725372E /* DeploymentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeploymentService.m; sourceTree = "<group>"; };
 		BF8CB3AD68C5DCA3531592AD /* ServerSettingsLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerSettingsLoader.h; sourceTree = "<group>"; };
 		BF8CB3B550810FCCCA45ADF6 /* MobilisServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilisServer.h; sourceTree = "<group>"; };
+		BF8CB3BFF5CBE72CB7131054 /* MobilisService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilisService.m; sourceTree = "<group>"; };
 		BF8CB4878B5CF052ADDF14E0 /* DeploymentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeploymentService.h; sourceTree = "<group>"; };
 		BF8CB798F14E8DBBE4739AB7 /* MobilisServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilisServer.m; sourceTree = "<group>"; };
 		BF8CB79DC19B5FA89BD01311 /* Settings.plist.template */ = {isa = PBXFileReference; lastKnownFileType = file.template; path = Settings.plist.template; sourceTree = "<group>"; };
+		BF8CB7A827D70D4C1923705A /* MobilisService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilisService.h; sourceTree = "<group>"; };
 		BF8CB7E4FC181C00270C0DA0 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Settings.plist; sourceTree = "<group>"; };
 		BF8CB7FB47E1696356421F28 /* AdminService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminService.h; sourceTree = "<group>"; };
 		BF8CB86FACBD76536EFD5A44 /* Agent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agent.m; sourceTree = "<group>"; };
@@ -150,6 +153,8 @@
 				BF8CB8822190553D389F7BC1 /* Helper */,
 				5BF6BEBE1809AF3D00658454 /* UIController */,
 				BF8CB30D50F89276EFDAE0DF /* XMPPFramework Subclasses */,
+				BF8CB3BFF5CBE72CB7131054 /* MobilisService.m */,
+				BF8CB7A827D70D4C1923705A /* MobilisService.h */,
 			);
 			path = Mobilis4Mac;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 				BF8CBCB66668F0679544E37E /* MobilisXMPPStream.m in Sources */,
 				BF8CB0D1B176549699DAF64F /* DeploymentService.m in Sources */,
 				BF8CBAD3EB9FB9C37AB62D7B /* AdminService.m in Sources */,
+				BF8CB78E862C7CD061417D80 /* MobilisService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

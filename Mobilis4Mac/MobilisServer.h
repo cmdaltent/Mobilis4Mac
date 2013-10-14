@@ -8,8 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class DeploymentService;
+@class AdminService;
+
 
 @interface MobilisServer : NSObject
+
+@property (strong, nonatomic, readonly) DeploymentService *deploymentService;
+@property (strong, nonatomic, readonly) AdminService *adminService;
+
++ (instancetype)sharedInstance;
 
 - (void)launchServer;
 

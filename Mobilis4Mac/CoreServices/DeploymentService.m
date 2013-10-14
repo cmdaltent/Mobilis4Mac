@@ -7,7 +7,15 @@
 
 
 #import "DeploymentService.h"
+#import "LoggingService.h"
+#import "AdminService.h"
+#import "MobilisService.h"
 
+@interface DeploymentService ()
+
+- (BOOL)checkBundle:(NSBundle *)bundle;
+
+@end
 
 @implementation DeploymentService
 
@@ -34,13 +42,33 @@
 {
     if ([self checkBundle:service]) {
         // TODO: process Bundle and prepare for install
+
     } else {
-        // TODO: throw an exception here.
+        // TODO: handle errors here
     }
 }
+
+- (void)uploadService:(NSBundle *)service fromLocalURL:(NSURL *)sourceLocation
+{
+    if ([self checkBundle:service]) {
+        [[AdminService sharedInstance] copyService:[[MobilisService alloc] initWithBundle:service]
+                                      fromLocalURL:sourceLocation];
+    } else {
+        // TODO: handle errors here
+        [[LoggingService sharedInstance] logString:@"Bundle invalid"];
+    }
+}
+
+#pragma mark - Helper Methods
+
 - (BOOL)checkBundle:(NSBundle *)bundle
 {
     #warning Unimplemented Method! DeploymentService checkBundle:
+    if (!bundle) {
+        [[LoggingService sharedInstance] logString:@"The uploaded bundle was nil"];
+        return NO;
+    }
+
     return YES;
 }
 

@@ -7,6 +7,8 @@
 //
 
 #import "ServiceUploadWindowController.h"
+#import "MobilisServer.h"
+#import "DeploymentService.h"
 
 @interface ServiceUploadWindowController ()
 
@@ -36,8 +38,10 @@
 
 - (IBAction)uploadBundle:(NSButton *)sender
 {
-    #warning ServiceUploadWindowController uploadBundle: not implemented.
-    // TODO: implement ServiceUploadWindowController uploadBundle:
+    NSBundle *service = [[NSBundle alloc] initWithURL:self.bundleURL];
+    [[[MobilisServer sharedInstance] deploymentService] uploadService:service fromLocalURL:self.bundleURL];
+
+    [self close];
 }
 
 @end

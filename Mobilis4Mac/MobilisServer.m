@@ -11,6 +11,8 @@
 #import "ServerSettingsLoader.h"
 #import "Agent.h"
 #import "LoggingService.h"
+#import "DeploymentService.h"
+#import "AdminService.h"
 
 @interface MobilisServer ()
 
@@ -21,6 +23,27 @@
 @end
 
 @implementation MobilisServer
+
+#pragma mark - Singleton Stack
+
++ (instancetype)sharedInstance
+{
+    static dispatch_once_t onceToken;
+    __strong static MobilisServer *shared = nil;
+    dispatch_once(&onceToken, ^{
+        shared = [[self alloc] initUniqueInstance];
+    });
+    return shared;
+}
+
+- (instancetype)initUniqueInstance
+{
+    _deploymentService = [DeploymentService sharedInstance];
+    _adminService = [AdminService sharedInstance];
+    return [self init];
+}
+
+#pragma mark - Public Interface
 
 - (void)launchServer
 {
