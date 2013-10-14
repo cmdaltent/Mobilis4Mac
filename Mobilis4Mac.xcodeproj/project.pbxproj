@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B864C0C180BD0B3005ABD98 /* ServiceUploadWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B864C0B180BD0B3005ABD98 /* ServiceUploadWindow.xib */; };
+		5B864C0F180BD0D5005ABD98 /* ServiceUploadWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B864C0E180BD0D5005ABD98 /* ServiceUploadWindowController.m */; };
 		5BA1E76B1807E89A0030C1FF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA1E76A1807E89A0030C1FF /* Cocoa.framework */; };
 		5BA1E7751807E89A0030C1FF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1E7731807E89A0030C1FF /* InfoPlist.strings */; };
 		5BA1E7771807E89A0030C1FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1E7761807E89A0030C1FF /* main.m */; };
@@ -29,6 +31,9 @@
 
 /* Begin PBXFileReference section */
 		023363BB9CB64466A2849E3A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		5B864C0B180BD0B3005ABD98 /* ServiceUploadWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceUploadWindow.xib; sourceTree = "<group>"; };
+		5B864C0D180BD0D5005ABD98 /* ServiceUploadWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServiceUploadWindowController.h; path = UIController/ServiceUploadWindowController.h; sourceTree = "<group>"; };
+		5B864C0E180BD0D5005ABD98 /* ServiceUploadWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServiceUploadWindowController.m; path = UIController/ServiceUploadWindowController.m; sourceTree = "<group>"; };
 		5BA1E7671807E89A0030C1FF /* Mobilis4Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobilis4Mac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA1E76A1807E89A0030C1FF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		5BA1E76D1807E89A0030C1FF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -76,6 +81,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B864C0A180BD07B005ABD98 /* User Interface Files */ = {
+			isa = PBXGroup;
+			children = (
+				5BA1E77F1807E89A0030C1FF /* MainMenu.xib */,
+				5BF6BEB91809AF0900658454 /* MainWindow.xib */,
+				5B864C0B180BD0B3005ABD98 /* ServiceUploadWindow.xib */,
+			);
+			name = "User Interface Files";
+			sourceTree = "<group>";
+		};
 		5BA1E75E1807E89A0030C1FF = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +134,7 @@
 			children = (
 				5BA1E77C1807E89A0030C1FF /* AppDelegate.h */,
 				5BA1E77D1807E89A0030C1FF /* AppDelegate.m */,
-				5BA1E77F1807E89A0030C1FF /* MainMenu.xib */,
+				5B864C0A180BD07B005ABD98 /* User Interface Files */,
 				5BA1E7821807E89A0030C1FF /* Images.xcassets */,
 				5BA1E7711807E89A0030C1FF /* Supporting Files */,
 				BF8CB88C7D231F8489077F01 /* CoreServices */,
@@ -127,7 +142,6 @@
 				BF8CB3B550810FCCCA45ADF6 /* MobilisServer.h */,
 				BF8CB2BBD07EB261A9EE04C7 /* Resources */,
 				BF8CB8822190553D389F7BC1 /* Helper */,
-				5BF6BEB91809AF0900658454 /* MainWindow.xib */,
 				5BF6BEBE1809AF3D00658454 /* UIController */,
 				BF8CB30D50F89276EFDAE0DF /* XMPPFramework Subclasses */,
 			);
@@ -151,6 +165,8 @@
 			children = (
 				5BF6BEBB1809AF3700658454 /* MainWindowController.h */,
 				5BF6BEBC1809AF3700658454 /* MainWindowController.m */,
+				5B864C0D180BD0D5005ABD98 /* ServiceUploadWindowController.h */,
+				5B864C0E180BD0D5005ABD98 /* ServiceUploadWindowController.m */,
 			);
 			name = UIController;
 			sourceTree = "<group>";
@@ -257,6 +273,7 @@
 				5BA1E77B1807E89A0030C1FF /* Credits.rtf in Resources */,
 				5BA1E7811807E89A0030C1FF /* MainMenu.xib in Resources */,
 				BF8CB7B7DB280D84E44A8AAF /* Settings.plist in Resources */,
+				5B864C0C180BD0B3005ABD98 /* ServiceUploadWindow.xib in Resources */,
 				BF8CB9BA31D8A6230D9BE0CE /* Settings.plist.template in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +348,7 @@
 			files = (
 				5BA1E77E1807E89A0030C1FF /* AppDelegate.m in Sources */,
 				5BA1E7771807E89A0030C1FF /* main.m in Sources */,
+				5B864C0F180BD0D5005ABD98 /* ServiceUploadWindowController.m in Sources */,
 				5BF6BEBD1809AF3700658454 /* MainWindowController.m in Sources */,
 				BF8CB8AF8AA0AC188BB13A57 /* Agent.m in Sources */,
 				BF8CBF89FD89E7379C65F9D0 /* ConnectionHandler.m in Sources */,

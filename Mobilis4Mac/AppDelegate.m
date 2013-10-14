@@ -11,10 +11,15 @@
 #import "MainWindowController.h"
 
 #import "MobilisServer.h"
+#import "ServiceUploadWindowController.h"
 
 @interface AppDelegate ()
 
+@property (strong, nonatomic) ServiceUploadWindowController *serviceUploadWindowController;
+
 - (void)setupAndShowMainWindow;
+
+- (IBAction)openUploadServiceWindow:(id)sender;
 
 @end
 
@@ -40,6 +45,16 @@
     self.mainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
     [self.mainWindowController.window makeKeyAndOrderFront:self];
     [self.mainWindowController showWindow:self];
+}
+
+#pragma mark - MenuBar Actions
+
+- (IBAction)openUploadServiceWindow:(id)sender {
+    if (!self.serviceUploadWindowController) {
+        self.serviceUploadWindowController = [[ServiceUploadWindowController alloc] initWithWindowNibName:@"ServiceUploadWindow"];
+    }
+    [self.serviceUploadWindowController.window makeKeyAndOrderFront:self];
+    [self.serviceUploadWindowController showWindow:self];
 }
 
 @end
