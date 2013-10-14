@@ -57,7 +57,7 @@
     if (self.xmppStream)
         return;
 
-    self.xmppStream = [[XMPPStream alloc] init];
+    self.xmppStream = [[MobilisXMPPStream alloc] init];
     self.streamQueue = dispatch_queue_create("Mobilis CH", DISPATCH_QUEUE_CONCURRENT);
     [self.xmppStream addDelegate:self delegateQueue:self.streamQueue];
 }
@@ -89,7 +89,6 @@
 
 - (void)send:(XMPPElement *)element
 {
-    [[LoggingService sharedInstance] logString:[element XMLString]];
     [self.xmppStream sendElement:element];
 }
 
