@@ -28,6 +28,11 @@
     [self loadServerSettings];
 }
 
+- (void)shutdownServer
+{
+    [self.agent terminate];
+}
+
 #pragma mark - Startup Helper
 
 - (void)loadServerSettings

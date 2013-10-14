@@ -24,4 +24,8 @@
     return self;
 }
 
+- (void)terminate
+{
+    [self.connectionHandler closeConnection];
+}
 @end

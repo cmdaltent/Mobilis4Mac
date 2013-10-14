@@ -17,4 +17,6 @@
 
 - (id)initWithJabberID:(NSString *)jabberID password:(NSString *)password hostName:(NSString *)hostName port:(NSNumber *)port;
 
+- (void)terminate;
+
 @end

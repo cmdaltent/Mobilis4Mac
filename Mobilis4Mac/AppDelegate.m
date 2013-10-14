@@ -28,6 +28,11 @@
     [self.mobilisServer launchServer];
 }
 
+- (void)applicationWillTerminate:(NSNotification *)notification
+{
+    [self.mobilisServer shutdownServer];
+}
+
 #pragma mark - User Interface Handling
 
 - (void)setupAndShowMainWindow

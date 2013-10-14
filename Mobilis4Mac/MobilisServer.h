@@ -13,4 +13,5 @@
 
 - (void)launchServer;
 
+- (void)shutdownServer;
 @end

@@ -24,4 +24,6 @@
 
 - (void)send:(XMPPElement *)element;
 
+- (void)closeConnection;
+
 @end

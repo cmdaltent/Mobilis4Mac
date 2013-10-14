@@ -85,11 +85,16 @@
     // TODO: Notify someone that connection establishment was successful.
 }
 
-#pragma mark - Pubic Interface
+#pragma mark - Public Interface
 
 - (void)send:(XMPPElement *)element
 {
     [self.xmppStream sendElement:element];
+}
+
+- (void)closeConnection
+{
+    [self.xmppStream disconnect];
 }
 
 #pragma mark - XMPPStreamDelegate
