@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B864C0C180BD0B3005ABD98 /* ServiceUploadWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B864C0B180BD0B3005ABD98 /* ServiceUploadWindow.xib */; };
-		5B864C0F180BD0D5005ABD98 /* ServiceUploadWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B864C0E180BD0D5005ABD98 /* ServiceUploadWindowController.m */; };
 		5BA1E76B1807E89A0030C1FF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA1E76A1807E89A0030C1FF /* Cocoa.framework */; };
 		5BA1E7751807E89A0030C1FF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1E7731807E89A0030C1FF /* InfoPlist.strings */; };
 		5BA1E7771807E89A0030C1FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1E7761807E89A0030C1FF /* main.m */; };
@@ -16,27 +14,19 @@
 		5BA1E77E1807E89A0030C1FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1E77D1807E89A0030C1FF /* AppDelegate.m */; };
 		5BA1E7811807E89A0030C1FF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1E77F1807E89A0030C1FF /* MainMenu.xib */; };
 		5BA1E7831807E89A0030C1FF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1E7821807E89A0030C1FF /* Images.xcassets */; };
-		5BF6BEBA1809AF0900658454 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF6BEB91809AF0900658454 /* MainWindow.xib */; };
-		5BF6BEBD1809AF3700658454 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6BEBC1809AF3700658454 /* MainWindowController.m */; };
 		B88CB41D32D24E90BCE096BB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8EC17DFE8A448788A6EB93 /* libPods.a */; };
-		BF8CB0D1B176549699DAF64F /* DeploymentService.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB2A77B201A7B9725372E /* DeploymentService.m */; };
-		BF8CB73F04ABEF48A5EC273E /* MobilisServer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB798F14E8DBBE4739AB7 /* MobilisServer.m */; };
-		BF8CB78E862C7CD061417D80 /* MobilisService.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB3BFF5CBE72CB7131054 /* MobilisService.m */; };
-		BF8CB7B7DB280D84E44A8AAF /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF8CB7E4FC181C00270C0DA0 /* Settings.plist */; };
-		BF8CB8AF8AA0AC188BB13A57 /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB86FACBD76536EFD5A44 /* Agent.m */; };
-		BF8CB9BA31D8A6230D9BE0CE /* Settings.plist.template in Resources */ = {isa = PBXBuildFile; fileRef = BF8CB79DC19B5FA89BD01311 /* Settings.plist.template */; };
-		BF8CBAD3EB9FB9C37AB62D7B /* AdminService.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB26765CA4CBE1557658F /* AdminService.m */; };
-		BF8CBB5D28BEF70496A5E16D /* LoggingService.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CBC41D49203182B92E231 /* LoggingService.m */; };
-		BF8CBCB66668F0679544E37E /* MobilisXMPPStream.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CBAEC18B1618FED59C0EA /* MobilisXMPPStream.m */; };
-		BF8CBD396E80970803D5C19F /* ServerSettingsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB937585E02B41FE712E2 /* ServerSettingsLoader.m */; };
-		BF8CBF89FD89E7379C65F9D0 /* ConnectionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8CB8B2214E51F9AD9196A0 /* ConnectionHandler.m */; };
+		E6F470B9F3EDB19ECBF035D1 /* SynchronizeRuntimeBean.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F473801A9B0BBD065F84B7 /* SynchronizeRuntimeBean.m */; };
+		E6F471812E321DFDCB2BE5F2 /* UploadWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F47FE4F48B0421ED26655E /* UploadWindowController.m */; };
+		E6F4745B42B3AFF4AEE63291 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6F47131B3312549812E0B57 /* MainWindow.xib */; };
+		E6F475B5C14837CCD2003DF1 /* UploadWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6F475897D9377891971B545 /* UploadWindow.xib */; };
+		E6F477346A80693E11CB5980 /* LoggingService.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F474168A3B1934E083A723 /* LoggingService.m */; };
+		E6F47B9AA05138D6397D1C8C /* DeploymentService.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F47097EDD1827F3802E97E /* DeploymentService.m */; };
+		E6F47D545F82922668B043A5 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F47F7D4F3A30616495FA72 /* MainWindowController.m */; };
+		E6F47F117FC00AD301AE1BB3 /* MobilisRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F478A47CA7FF68A38E69E8 /* MobilisRuntime.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		023363BB9CB64466A2849E3A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		5B864C0B180BD0B3005ABD98 /* ServiceUploadWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceUploadWindow.xib; sourceTree = "<group>"; };
-		5B864C0D180BD0D5005ABD98 /* ServiceUploadWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServiceUploadWindowController.h; path = UIController/ServiceUploadWindowController.h; sourceTree = "<group>"; };
-		5B864C0E180BD0D5005ABD98 /* ServiceUploadWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServiceUploadWindowController.m; path = UIController/ServiceUploadWindowController.m; sourceTree = "<group>"; };
 		5BA1E7671807E89A0030C1FF /* Mobilis4Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobilis4Mac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA1E76A1807E89A0030C1FF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		5BA1E76D1807E89A0030C1FF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -51,30 +41,21 @@
 		5BA1E77D1807E89A0030C1FF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5BA1E7801807E89A0030C1FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5BA1E7821807E89A0030C1FF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		5BF6BEB91809AF0900658454 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		5BF6BEBB1809AF3700658454 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainWindowController.h; path = UIController/MainWindowController.h; sourceTree = "<group>"; };
-		5BF6BEBC1809AF3700658454 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = UIController/MainWindowController.m; sourceTree = "<group>"; };
-		BF8CB0526922F34AC446AE77 /* Agent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agent.h; sourceTree = "<group>"; };
-		BF8CB08D1F4AB70D37D31E61 /* LoggingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingService.h; sourceTree = "<group>"; };
-		BF8CB26765CA4CBE1557658F /* AdminService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminService.m; sourceTree = "<group>"; };
-		BF8CB2A77B201A7B9725372E /* DeploymentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeploymentService.m; sourceTree = "<group>"; };
-		BF8CB3AD68C5DCA3531592AD /* ServerSettingsLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerSettingsLoader.h; sourceTree = "<group>"; };
-		BF8CB3B550810FCCCA45ADF6 /* MobilisServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilisServer.h; sourceTree = "<group>"; };
-		BF8CB3BFF5CBE72CB7131054 /* MobilisService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilisService.m; sourceTree = "<group>"; };
-		BF8CB4878B5CF052ADDF14E0 /* DeploymentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeploymentService.h; sourceTree = "<group>"; };
-		BF8CB798F14E8DBBE4739AB7 /* MobilisServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilisServer.m; sourceTree = "<group>"; };
-		BF8CB79DC19B5FA89BD01311 /* Settings.plist.template */ = {isa = PBXFileReference; lastKnownFileType = file.template; path = Settings.plist.template; sourceTree = "<group>"; };
-		BF8CB7A827D70D4C1923705A /* MobilisService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilisService.h; sourceTree = "<group>"; };
-		BF8CB7E4FC181C00270C0DA0 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Settings.plist; sourceTree = "<group>"; };
-		BF8CB7FB47E1696356421F28 /* AdminService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminService.h; sourceTree = "<group>"; };
-		BF8CB86FACBD76536EFD5A44 /* Agent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agent.m; sourceTree = "<group>"; };
-		BF8CB8B2214E51F9AD9196A0 /* ConnectionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionHandler.m; sourceTree = "<group>"; };
-		BF8CB937585E02B41FE712E2 /* ServerSettingsLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerSettingsLoader.m; sourceTree = "<group>"; };
-		BF8CB9E4E5A276A0F4518894 /* ConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionHandler.h; sourceTree = "<group>"; };
-		BF8CBAADC434675B17375D63 /* MobilisXMPPStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilisXMPPStream.h; sourceTree = "<group>"; };
-		BF8CBAEC18B1618FED59C0EA /* MobilisXMPPStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilisXMPPStream.m; sourceTree = "<group>"; };
-		BF8CBC41D49203182B92E231 /* LoggingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingService.m; sourceTree = "<group>"; };
 		BF8EC17DFE8A448788A6EB93 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6F47097EDD1827F3802E97E /* DeploymentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeploymentService.m; sourceTree = "<group>"; };
+		E6F47131B3312549812E0B57 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		E6F473801A9B0BBD065F84B7 /* SynchronizeRuntimeBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchronizeRuntimeBean.m; sourceTree = "<group>"; };
+		E6F474168A3B1934E083A723 /* LoggingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingService.m; sourceTree = "<group>"; };
+		E6F475897D9377891971B545 /* UploadWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadWindow.xib; sourceTree = "<group>"; };
+		E6F478A47CA7FF68A38E69E8 /* MobilisRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilisRuntime.m; sourceTree = "<group>"; };
+		E6F4793397565A5FAE006D45 /* LoggingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingService.h; sourceTree = "<group>"; };
+		E6F47A388EC73DE762DDCADE /* SynchronizeRuntimeBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronizeRuntimeBean.h; sourceTree = "<group>"; };
+		E6F47C56D6C6D11155AE7A13 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		E6F47D63CC03702F2DFE9D8C /* DeploymentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeploymentService.h; sourceTree = "<group>"; };
+		E6F47E0F046257BBBD7171B6 /* UploadWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadWindowController.h; sourceTree = "<group>"; };
+		E6F47E3320E1F5DF26EB20BA /* MobilisRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilisRuntime.h; sourceTree = "<group>"; };
+		E6F47F7D4F3A30616495FA72 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
+		E6F47FE4F48B0421ED26655E /* UploadWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				5BA1E77F1807E89A0030C1FF /* MainMenu.xib */,
-				5BF6BEB91809AF0900658454 /* MainWindow.xib */,
-				5B864C0B180BD0B3005ABD98 /* ServiceUploadWindow.xib */,
+				E6F47131B3312549812E0B57 /* MainWindow.xib */,
+				E6F475897D9377891971B545 /* UploadWindow.xib */,
 			);
 			name = "User Interface Files";
 			sourceTree = "<group>";
@@ -146,15 +127,9 @@
 				5B864C0A180BD07B005ABD98 /* User Interface Files */,
 				5BA1E7821807E89A0030C1FF /* Images.xcassets */,
 				5BA1E7711807E89A0030C1FF /* Supporting Files */,
-				BF8CB88C7D231F8489077F01 /* CoreServices */,
-				BF8CB798F14E8DBBE4739AB7 /* MobilisServer.m */,
-				BF8CB3B550810FCCCA45ADF6 /* MobilisServer.h */,
-				BF8CB2BBD07EB261A9EE04C7 /* Resources */,
-				BF8CB8822190553D389F7BC1 /* Helper */,
-				5BF6BEBE1809AF3D00658454 /* UIController */,
-				BF8CB30D50F89276EFDAE0DF /* XMPPFramework Subclasses */,
-				BF8CB3BFF5CBE72CB7131054 /* MobilisService.m */,
-				BF8CB7A827D70D4C1923705A /* MobilisService.h */,
+				E6F479C54E094BD36CD4EC44 /* UI Controller */,
+				E6F4769BAC75BAE58DDC6337 /* Helper */,
+				E6F4778DABFA2CCF4E7A5FE1 /* Mobilis Runtime */,
 			);
 			path = Mobilis4Mac;
 			sourceTree = "<group>";
@@ -171,59 +146,45 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5BF6BEBE1809AF3D00658454 /* UIController */ = {
+		E6F4769BAC75BAE58DDC6337 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				5BF6BEBB1809AF3700658454 /* MainWindowController.h */,
-				5BF6BEBC1809AF3700658454 /* MainWindowController.m */,
-				5B864C0D180BD0D5005ABD98 /* ServiceUploadWindowController.h */,
-				5B864C0E180BD0D5005ABD98 /* ServiceUploadWindowController.m */,
-			);
-			name = UIController;
-			sourceTree = "<group>";
-		};
-		BF8CB2BBD07EB261A9EE04C7 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				BF8CB7E4FC181C00270C0DA0 /* Settings.plist */,
-				BF8CB79DC19B5FA89BD01311 /* Settings.plist.template */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		BF8CB30D50F89276EFDAE0DF /* XMPPFramework Subclasses */ = {
-			isa = PBXGroup;
-			children = (
-				BF8CBAADC434675B17375D63 /* MobilisXMPPStream.h */,
-				BF8CBAEC18B1618FED59C0EA /* MobilisXMPPStream.m */,
-			);
-			path = "XMPPFramework Subclasses";
-			sourceTree = "<group>";
-		};
-		BF8CB8822190553D389F7BC1 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				BF8CB937585E02B41FE712E2 /* ServerSettingsLoader.m */,
-				BF8CB3AD68C5DCA3531592AD /* ServerSettingsLoader.h */,
-				BF8CBC41D49203182B92E231 /* LoggingService.m */,
-				BF8CB08D1F4AB70D37D31E61 /* LoggingService.h */,
+				E6F4793397565A5FAE006D45 /* LoggingService.h */,
+				E6F474168A3B1934E083A723 /* LoggingService.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		BF8CB88C7D231F8489077F01 /* CoreServices */ = {
+		E6F4778DABFA2CCF4E7A5FE1 /* Mobilis Runtime */ = {
 			isa = PBXGroup;
 			children = (
-				BF8CB86FACBD76536EFD5A44 /* Agent.m */,
-				BF8CB0526922F34AC446AE77 /* Agent.h */,
-				BF8CB8B2214E51F9AD9196A0 /* ConnectionHandler.m */,
-				BF8CB9E4E5A276A0F4518894 /* ConnectionHandler.h */,
-				BF8CB2A77B201A7B9725372E /* DeploymentService.m */,
-				BF8CB4878B5CF052ADDF14E0 /* DeploymentService.h */,
-				BF8CB26765CA4CBE1557658F /* AdminService.m */,
-				BF8CB7FB47E1696356421F28 /* AdminService.h */,
+				E6F47097EDD1827F3802E97E /* DeploymentService.m */,
+				E6F47D63CC03702F2DFE9D8C /* DeploymentService.h */,
+				E6F47E3320E1F5DF26EB20BA /* MobilisRuntime.h */,
+				E6F478A47CA7FF68A38E69E8 /* MobilisRuntime.m */,
+				E6F478A59290B1C961154880 /* Beans */,
 			);
-			path = CoreServices;
+			path = "Mobilis Runtime";
+			sourceTree = "<group>";
+		};
+		E6F478A59290B1C961154880 /* Beans */ = {
+			isa = PBXGroup;
+			children = (
+				E6F47A388EC73DE762DDCADE /* SynchronizeRuntimeBean.h */,
+				E6F473801A9B0BBD065F84B7 /* SynchronizeRuntimeBean.m */,
+			);
+			path = Beans;
+			sourceTree = "<group>";
+		};
+		E6F479C54E094BD36CD4EC44 /* UI Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6F47E0F046257BBBD7171B6 /* UploadWindowController.h */,
+				E6F47FE4F48B0421ED26655E /* UploadWindowController.m */,
+				E6F47C56D6C6D11155AE7A13 /* MainWindowController.h */,
+				E6F47F7D4F3A30616495FA72 /* MainWindowController.m */,
+			);
+			path = "UI Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,14 +243,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BF6BEBA1809AF0900658454 /* MainWindow.xib in Resources */,
 				5BA1E7751807E89A0030C1FF /* InfoPlist.strings in Resources */,
 				5BA1E7831807E89A0030C1FF /* Images.xcassets in Resources */,
 				5BA1E77B1807E89A0030C1FF /* Credits.rtf in Resources */,
 				5BA1E7811807E89A0030C1FF /* MainMenu.xib in Resources */,
-				BF8CB7B7DB280D84E44A8AAF /* Settings.plist in Resources */,
-				5B864C0C180BD0B3005ABD98 /* ServiceUploadWindow.xib in Resources */,
-				BF8CB9BA31D8A6230D9BE0CE /* Settings.plist.template in Resources */,
+				E6F4745B42B3AFF4AEE63291 /* MainWindow.xib in Resources */,
+				E6F475B5C14837CCD2003DF1 /* UploadWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,17 +322,12 @@
 			files = (
 				5BA1E77E1807E89A0030C1FF /* AppDelegate.m in Sources */,
 				5BA1E7771807E89A0030C1FF /* main.m in Sources */,
-				5B864C0F180BD0D5005ABD98 /* ServiceUploadWindowController.m in Sources */,
-				5BF6BEBD1809AF3700658454 /* MainWindowController.m in Sources */,
-				BF8CB8AF8AA0AC188BB13A57 /* Agent.m in Sources */,
-				BF8CBF89FD89E7379C65F9D0 /* ConnectionHandler.m in Sources */,
-				BF8CB73F04ABEF48A5EC273E /* MobilisServer.m in Sources */,
-				BF8CBD396E80970803D5C19F /* ServerSettingsLoader.m in Sources */,
-				BF8CBB5D28BEF70496A5E16D /* LoggingService.m in Sources */,
-				BF8CBCB66668F0679544E37E /* MobilisXMPPStream.m in Sources */,
-				BF8CB0D1B176549699DAF64F /* DeploymentService.m in Sources */,
-				BF8CBAD3EB9FB9C37AB62D7B /* AdminService.m in Sources */,
-				BF8CB78E862C7CD061417D80 /* MobilisService.m in Sources */,
+				E6F471812E321DFDCB2BE5F2 /* UploadWindowController.m in Sources */,
+				E6F47D545F82922668B043A5 /* MainWindowController.m in Sources */,
+				E6F477346A80693E11CB5980 /* LoggingService.m in Sources */,
+				E6F47B9AA05138D6397D1C8C /* DeploymentService.m in Sources */,
+				E6F47F117FC00AD301AE1BB3 /* MobilisRuntime.m in Sources */,
+				E6F470B9F3EDB19ECBF035D1 /* SynchronizeRuntimeBean.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

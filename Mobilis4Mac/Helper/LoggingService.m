@@ -1,87 +1,106 @@
 //
-// Created by Martin Weißbach on 10/12/13.
-// Copyright (c) 2013 Technische Universität Dresden. All rights reserved.
+//  LoggingService.m
+//  ACDSenseService4Mac
 //
-// To change the template use AppCode | Preferences | File Templates.
+//  Created by Martin Weissbach on 26/12/13.
+//  Copyright (c) 2013 Technische Universität Dresden. All rights reserved.
 //
-
 
 #import "LoggingService.h"
 
-@interface LoggingService ()
-
-- (void)logToConsole:(NSString *)stringMessage;
-- (void)logToDelegate:(NSString *)stringMessage;
-
-- (NSString *)appendLineBreak:(NSString *)string;
-
-@end
-
 @implementation LoggingService
-
-static void* KVOContext = &KVOContext;
-
-#pragma mark - Singleton Stack
-
-+ (instancetype)sharedInstance
 {
-    static dispatch_once_t onceToken;
-    __strong static LoggingService *shared = nil;
-    dispatch_once(&onceToken, ^{
-        shared = [[self alloc] initUniqueInstance];
-        [self addObserver:shared
-               forKeyPath:NSStringFromSelector(@selector(debugMode))
-                  options:NSKeyValueObservingOptionNew
-                  context:KVOContext];
-    });
-    return shared;
+    __strong NSPointerArray *_delegates;
 }
 
-- (instancetype)initUniqueInstance
++ (instancetype)loggingService
 {
+    static dispatch_once_t onceToken;
+    static LoggingService *sharedInstance = nil;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [(LoggingService *) [super allocWithZone:NULL] initUnique];
+    });
+    
+    return sharedInstance;
+}
+- (id)initUnique
+{
+    _delegates = [NSPointerArray weakObjectsPointerArray];
     return [self init];
 }
 
-#pragma mark - Public Interface Implementation
-
-- (void)logString:(NSString *)stringMessage
++ (id)allocWithZone:(struct _NSZone *)zone
 {
-    dispatch_async(dispatch_get_main_queue(), ^
-    {
-        if (self.debugMode) {
-            [self logToConsole:stringMessage];
+    return [self loggingService];
+}
+
+- (void)addDelegate:(id<LoggingServiceDelegate>)delegate
+{
+    [_delegates addPointer:(__bridge void*)delegate];
+}
+
+- (void)removeDelegate:(id<LoggingServiceDelegate>)delegate
+{
+    NSUInteger index = [self delegateIndex:delegate];
+    [_delegates removePointerAtIndex:index];
+    [self clearNilAndNullValues];
+}
+- (NSUInteger)delegateIndex:(id<LoggingServiceDelegate>)delegate
+{
+    NSUInteger index = 0;
+    for (unsigned int i = 0; i < _delegates.count; i++) {
+        if (delegate == (__bridge id)[_delegates pointerAtIndex:i]) {
+            index = i;
+            break;
         }
-        [self logToDelegate:stringMessage];
-    });
-}
-
-#pragma mark - Private Logging Helper
-
-- (void)logToConsole:(NSString *)stringMessage
-{
-    NSLog(@"%@", [self appendLineBreak:stringMessage]);
-}
-
-- (void)logToDelegate:(NSString *)stringMessage
-{
-    if (self.delegate && stringMessage && ![stringMessage isEqualToString:@""])
-        [self.delegate logString:[self appendLineBreak:stringMessage]];
-}
-
-#pragma mark - String Modifications
-
-- (NSString *)appendLineBreak:(NSString *)string
-{
-    return [NSString stringWithFormat:@"%@\n", string];
-}
-
-#pragma mark - KVO Compliance
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if (context == KVOContext && [keyPath isEqualToString:NSStringFromSelector(@selector(debugMode))]) {
-        [self logString:[NSString stringWithFormat:@"Debug Mode changed to %i", self.debugMode]];
     }
+    return index;
+}
+- (void)clearNilAndNullValues
+{
+    [_delegates compact];
+    BOOL nilFound = YES;
+    while (nilFound) {
+        for (unsigned int i = 0; i < _delegates.count; i++)
+            if ([_delegates pointerAtIndex:i] == nil) {
+                [_delegates removePointerAtIndex:i];
+                break;
+            }
+        nilFound = NO;
+    }
+}
+
+- (void)logMessage:(NSString *)logMessage withLevel:(LogLevel)logLevel
+{
+#if DEBUG
+    NSLog(@"%@\n", logMessage);
+#endif
+    NSAttributedString *logString = [[NSAttributedString alloc] initWithString:logMessage
+                                                                    attributes:@{NSForegroundColorAttributeName: [self colorForLogLevel:logLevel]}];
+    for (id<LoggingServiceDelegate> delegate in _delegates)
+        if (delegate != nil && delegate != NULL) {
+            [delegate performSelector:@selector(logString:) withObject:logString];
+        }
+}
+
+- (NSColor *)colorForLogLevel:(LogLevel)level
+{
+    NSColor *color = [NSColor blackColor];
+    switch (level) {
+        case LS_ERROR:
+            color = [NSColor redColor];
+            break;
+        case LS_WARNING:
+            color = [NSColor orangeColor];
+            break;
+        case LS_INFO:
+            color = [NSColor blueColor];
+            break;
+        case LS_TRACE:
+        default:
+            break;
+    }
+    return color;
 }
 
 @end

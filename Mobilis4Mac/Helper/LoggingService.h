@@ -1,28 +1,51 @@
 //
-// Created by Martin Weißbach on 10/12/13.
-// Copyright (c) 2013 Technische Universität Dresden. All rights reserved.
+//  LoggingService.h
+//  ACDSenseService4Mac
 //
-// To change the template use AppCode | Preferences | File Templates.
+//  Created by Martin Weissbach on 26/12/13.
+//  Copyright (c) 2013 Technische Universität Dresden. All rights reserved.
 //
-
 
 #import <Foundation/Foundation.h>
 
-@protocol LoggingServiceDelegate
+typedef enum _LogLevel {
+    LS_TRACE,
+    LS_INFO,
+    LS_WARNING,
+    LS_ERROR
+} LogLevel;
 
-- (void)logString:(NSString *)logMessageAsString;
-
-@end
+@protocol LoggingServiceDelegate;
 
 @interface LoggingService : NSObject
 
-@property (weak, nonatomic) id<LoggingServiceDelegate> delegate;
-@property BOOL debugMode;
++ (instancetype)loggingService;
 
-+ (instancetype)sharedInstance;
+- (void)addDelegate:(id<LoggingServiceDelegate>)delegate;
+- (void)removeDelegate:(id<LoggingServiceDelegate>)delegate;
 
-- (id)initUniqueInstance;
+/*!
+    Broadcast a given log message with a log level to all registered delegates.
+    
+    @param  logMessage      The message to be logged.
+    @param  logLevel        The importance level of the log message.
+ 
+    @see    LoggingServiceDelegate
+ */
+- (void)logMessage:(NSString *)logMessage withLevel:(LogLevel)logLevel;
 
-- (void)logString:(NSString *)stringMessage;
+@end
+
+/*!
+    All objects registering as log delegates are required to implement the delegate protocol.
+ */
+@protocol LoggingServiceDelegate <NSObject>
+
+/*!
+    This message is sent to all delegates of the LoggingService object.
+ 
+    @param  logMessage      The message to be logged somehow by the delegates.
+ */
+- (void)logString:(NSAttributedString *)logMessage;
 
 @end

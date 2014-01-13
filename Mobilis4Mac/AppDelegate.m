@@ -10,12 +10,15 @@
 
 #import "MainWindowController.h"
 
-#import "MobilisServer.h"
-#import "ServiceUploadWindowController.h"
+#import "UploadWindowController.h"
+#import "MobilisRuntime.h"
 
 @interface AppDelegate ()
 
-@property (strong, nonatomic) ServiceUploadWindowController *serviceUploadWindowController;
+@property (nonatomic) MobilisRuntime *mobilisRuntime;
+
+@property (nonatomic) MainWindowController *mainWindowController;
+@property (nonatomic) UploadWindowController *uploadWindowController;
 
 - (void)setupAndShowMainWindow;
 
@@ -29,13 +32,13 @@
 {
     [self setupAndShowMainWindow];
     
-    self.mobilisServer = [MobilisServer new];
-    [self.mobilisServer launchServer];
+    self.mobilisRuntime = [MobilisRuntime mobilisRuntime];
+    [self.mobilisRuntime launchRuntime];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
-    [self.mobilisServer shutdownServer];
+    [self.mobilisRuntime shutdownRuntime];
 }
 
 #pragma mark - User Interface Handling
@@ -50,11 +53,11 @@
 #pragma mark - MenuBar Actions
 
 - (IBAction)openUploadServiceWindow:(id)sender {
-    if (!self.serviceUploadWindowController) {
-        self.serviceUploadWindowController = [[ServiceUploadWindowController alloc] initWithWindowNibName:@"ServiceUploadWindow"];
+    if (!self.uploadWindowController) {
+        self.uploadWindowController = [[UploadWindowController alloc] initWithWindowNibName:@"UploadWindow"];
     }
-    [self.serviceUploadWindowController.window makeKeyAndOrderFront:self];
-    [self.serviceUploadWindowController showWindow:self];
+    [self.uploadWindowController.window makeKeyAndOrderFront:self];
+    [self.uploadWindowController showWindow:self];
 }
 
 @end
