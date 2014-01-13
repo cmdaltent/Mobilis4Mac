@@ -7,10 +7,11 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SettingsWindowController">
             <connections>
-                <outlet property="debugModeSwitch" destination="JlW-hY-TI6" id="El4-i6-t52"/>
                 <outlet property="hostnameTextField" destination="e7u-QP-Cds" id="lbs-Xa-2qH"/>
                 <outlet property="jidTextField" destination="Ce2-uv-8pm" id="245-DL-XQB"/>
                 <outlet property="passwordTextField" destination="qeY-et-sht" id="bSU-Xz-osr"/>
+                <outlet property="portTextField" destination="nmt-9t-Kmi" id="HYM-6H-21A"/>
+                <outlet property="window" destination="1" id="vva-Pv-XEW"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -89,17 +90,6 @@
                             </allowedInputSourceLocales>
                         </secureTextFieldCell>
                     </secureTextField>
-                    <button translatesAutoresizingMaskIntoConstraints="NO" id="JlW-hY-TI6">
-                        <rect key="frame" x="265" y="59" width="123" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="119" id="JgJ-bd-ahv"/>
-                        </constraints>
-                        <buttonCell key="cell" type="check" title="Debug Mode" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="JSp-hz-3aU">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nDb-qP-W5v">
                         <rect key="frame" x="153" y="13" width="221" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -126,26 +116,53 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kJS-TT-e4h">
+                        <rect key="frame" x="267" y="91" width="241" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="237" id="Cjk-gb-KHj"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Port:" id="yuA-Lq-FAB">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nmt-9t-Kmi">
+                        <rect key="frame" x="269" y="61" width="237" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="237" id="ixd-em-Avr"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="5222" drawsBackground="YES" id="YF0-x3-AVR">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <constraints>
                     <constraint firstItem="qeY-et-sht" firstAttribute="leading" secondItem="Ce2-uv-8pm" secondAttribute="trailing" constant="8" id="1E4-ZZ-fR6"/>
+                    <constraint firstItem="nmt-9t-Kmi" firstAttribute="top" secondItem="kJS-TT-e4h" secondAttribute="bottom" constant="8" id="3qS-Oa-Aod"/>
                     <constraint firstItem="4ti-0G-iNH" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" id="4dH-TA-ifa"/>
+                    <constraint firstItem="nDb-qP-W5v" firstAttribute="top" secondItem="nmt-9t-Kmi" secondAttribute="bottom" constant="20" id="6z0-bM-YTo"/>
                     <constraint firstItem="4ti-0G-iNH" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" id="9R5-zC-9AF"/>
                     <constraint firstAttribute="bottom" secondItem="nDb-qP-W5v" secondAttribute="bottom" constant="20" id="9vO-6X-y6q"/>
                     <constraint firstItem="1vw-4E-NMs" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" id="ARv-SC-wDn"/>
-                    <constraint firstItem="nDb-qP-W5v" firstAttribute="top" secondItem="JlW-hY-TI6" secondAttribute="bottom" constant="20" id="DtY-jL-eUF"/>
                     <constraint firstItem="e7u-QP-Cds" firstAttribute="top" secondItem="1vw-4E-NMs" secondAttribute="bottom" constant="8" id="FzP-m7-VGW"/>
                     <constraint firstItem="Ce2-uv-8pm" firstAttribute="top" secondItem="4ti-0G-iNH" secondAttribute="bottom" constant="8" id="Kza-Cz-8bP"/>
                     <constraint firstItem="e7u-QP-Cds" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" id="Nir-vn-wNY"/>
                     <constraint firstItem="9Io-kW-Knx" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" id="OqY-bE-30W"/>
                     <constraint firstAttribute="trailing" secondItem="qeY-et-sht" secondAttribute="trailing" constant="20" id="P2Y-tv-vyW"/>
+                    <constraint firstItem="kJS-TT-e4h" firstAttribute="leading" secondItem="1vw-4E-NMs" secondAttribute="trailing" constant="10" id="PhL-lw-ju2"/>
                     <constraint firstItem="Ce2-uv-8pm" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" id="RCx-ZV-Mu5"/>
                     <constraint firstItem="qeY-et-sht" firstAttribute="top" secondItem="9Io-kW-Knx" secondAttribute="bottom" constant="8" id="RMM-v2-06P"/>
                     <constraint firstItem="9Io-kW-Knx" firstAttribute="leading" secondItem="4ti-0G-iNH" secondAttribute="trailing" constant="8" id="Zck-9d-Na7"/>
+                    <constraint firstItem="nmt-9t-Kmi" firstAttribute="leading" secondItem="e7u-QP-Cds" secondAttribute="trailing" constant="10" id="b1w-U4-aOW"/>
                     <constraint firstAttribute="centerX" secondItem="nDb-qP-W5v" secondAttribute="centerX" id="fq5-4m-LQG"/>
-                    <constraint firstItem="JlW-hY-TI6" firstAttribute="leading" secondItem="e7u-QP-Cds" secondAttribute="trailing" constant="8" id="go2-nZ-Ypv"/>
                     <constraint firstItem="1vw-4E-NMs" firstAttribute="top" secondItem="Ce2-uv-8pm" secondAttribute="bottom" constant="8" id="izK-Xt-IVp"/>
-                    <constraint firstItem="JlW-hY-TI6" firstAttribute="top" secondItem="qeY-et-sht" secondAttribute="bottom" constant="41" id="whl-Cv-3zg"/>
+                    <constraint firstAttribute="trailing" secondItem="nmt-9t-Kmi" secondAttribute="trailing" constant="20" id="ooZ-3M-13B"/>
+                    <constraint firstItem="kJS-TT-e4h" firstAttribute="top" secondItem="qeY-et-sht" secondAttribute="bottom" constant="8" id="uDK-53-TSb"/>
                 </constraints>
             </view>
         </window>

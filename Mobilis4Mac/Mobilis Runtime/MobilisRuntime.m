@@ -10,6 +10,7 @@
 #import <MobilisMXi/MXi/Account.h>
 #import <MobilisMXi/MXi/DefaultSettings.h>
 #import <MobilisMXi/MXi/MXiBeanConverter.h>
+#import <MobilisMXi/MXi/AccountManager.h>
 #import "DeploymentService.h"
 #import "MobilisRuntime.h"
 #import "LoggingService.h"
@@ -22,8 +23,6 @@
 @property (nonatomic, readwrite) DeploymentService *deploymentService;
 
 @property (nonatomic) NSMutableArray *startedServices;
-
-- (Account *)defaultAccountInformation;
 
 @end
 
@@ -64,7 +63,7 @@
 
 - (void)launchRuntime
 {
-    Account *account = [self defaultAccountInformation];
+    Account *account = [AccountManager account];
     [self.connectionHandler launchConnectionWithJID:account.jid
                                            password:account.password
                                            hostName:account.hostName
@@ -104,18 +103,6 @@
                                                                                withRemoteRuntime:@"mobilis@localhost/Deployment"];
     [synchronizeRuntimeBean setServiceJIDs:serviceJIDs];
     [[MXiConnectionHandler sharedInstance] sendElement:[MXiBeanConverter beanToIQ:synchronizeRuntimeBean]];
-}
-
-#pragma mark - Private Helper
-
-- (Account *)defaultAccountInformation
-{
-    DefaultSettings *settings = [DefaultSettings defaultSettings];
-
-    return [[Account alloc] initWithJID:[settings valueForKey:SERVICE_JID]
-                               password:[settings valueForKey:SERVICE_PASSWORD]
-                               hostName:[settings valueForKey:SERVER_HOSTNAME]
-                                   port:[NSNumber numberWithInteger:[[settings valueForKey:SERVER_PORT] integerValue]]];
 }
 
 #pragma mark - MXiConnectionHandlerDelegate

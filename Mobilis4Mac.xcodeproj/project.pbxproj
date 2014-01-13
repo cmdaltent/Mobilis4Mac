@@ -19,6 +19,7 @@
 		B88CB41D32D24E90BCE096BB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8EC17DFE8A448788A6EB93 /* libPods.a */; };
 		E6F470B9F3EDB19ECBF035D1 /* SynchronizeRuntimeBean.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F473801A9B0BBD065F84B7 /* SynchronizeRuntimeBean.m */; };
 		E6F471812E321DFDCB2BE5F2 /* UploadWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F47FE4F48B0421ED26655E /* UploadWindowController.m */; };
+		E6F472E2B26B9B1C452A4BCA /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F47984F2A541477385A0B8 /* SettingsManager.m */; };
 		E6F4745B42B3AFF4AEE63291 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6F47131B3312549812E0B57 /* MainWindow.xib */; };
 		E6F475B5C14837CCD2003DF1 /* UploadWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6F475897D9377891971B545 /* UploadWindow.xib */; };
 		E6F477346A80693E11CB5980 /* LoggingService.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F474168A3B1934E083A723 /* LoggingService.m */; };
@@ -54,7 +55,9 @@
 		E6F475897D9377891971B545 /* UploadWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadWindow.xib; sourceTree = "<group>"; };
 		E6F478A47CA7FF68A38E69E8 /* MobilisRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilisRuntime.m; sourceTree = "<group>"; };
 		E6F4793397565A5FAE006D45 /* LoggingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingService.h; sourceTree = "<group>"; };
+		E6F47984F2A541477385A0B8 /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsManager.m; sourceTree = "<group>"; };
 		E6F47A388EC73DE762DDCADE /* SynchronizeRuntimeBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronizeRuntimeBean.h; sourceTree = "<group>"; };
+		E6F47C283A614CC5DD0108E6 /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsManager.h; sourceTree = "<group>"; };
 		E6F47C56D6C6D11155AE7A13 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		E6F47D63CC03702F2DFE9D8C /* DeploymentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeploymentService.h; sourceTree = "<group>"; };
 		E6F47E0F046257BBBD7171B6 /* UploadWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadWindowController.h; sourceTree = "<group>"; };
@@ -157,6 +160,8 @@
 			children = (
 				E6F4793397565A5FAE006D45 /* LoggingService.h */,
 				E6F474168A3B1934E083A723 /* LoggingService.m */,
+				E6F47984F2A541477385A0B8 /* SettingsManager.m */,
+				E6F47C283A614CC5DD0108E6 /* SettingsManager.h */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -338,6 +343,7 @@
 				E6F47B9AA05138D6397D1C8C /* DeploymentService.m in Sources */,
 				E6F47F117FC00AD301AE1BB3 /* MobilisRuntime.m in Sources */,
 				E6F470B9F3EDB19ECBF035D1 /* SynchronizeRuntimeBean.m in Sources */,
+				E6F472E2B26B9B1C452A4BCA /* SettingsManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

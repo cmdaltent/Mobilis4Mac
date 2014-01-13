@@ -12,6 +12,9 @@
 
 #import "UploadWindowController.h"
 #import "MobilisRuntime.h"
+#import "SettingsManager.h"
+#import "SettingsWindowController.h"
+#import "LoggingService.h"
 
 @interface AppDelegate ()
 
@@ -19,10 +22,12 @@
 
 @property (nonatomic) MainWindowController *mainWindowController;
 @property (nonatomic) UploadWindowController *uploadWindowController;
+@property (nonatomic) SettingsWindowController *settingsWindowController;
 
 - (void)setupAndShowMainWindow;
 
 - (IBAction)openUploadServiceWindow:(id)sender;
+- (IBAction)openSettingsWindow:(id)sender;
 
 @end
 
@@ -31,9 +36,17 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [self setupAndShowMainWindow];
-    
-    self.mobilisRuntime = [MobilisRuntime mobilisRuntime];
-    [self.mobilisRuntime launchRuntime];
+
+    SettingsManager *settingsManager = [SettingsManager new];
+    if ([settingsManager areSettingsValid]) {
+
+        self.mobilisRuntime = [MobilisRuntime mobilisRuntime];
+        [self.mobilisRuntime launchRuntime];
+    } else {
+        [[LoggingService loggingService] logMessage:@"Incomplete or invalid credentials. Store XMPP account information first."
+                                          withLevel:LS_ERROR];
+        [self openSettingsWindow:self];
+    }
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification
@@ -56,8 +69,17 @@
     if (!self.uploadWindowController) {
         self.uploadWindowController = [[UploadWindowController alloc] initWithWindowNibName:@"UploadWindow"];
     }
-    [self.uploadWindowController.window makeKeyAndOrderFront:self];
-    [self.uploadWindowController showWindow:self];
+    [self.uploadWindowController.window makeKeyAndOrderFront:sender];
+    [self.uploadWindowController showWindow:sender];
+}
+
+- (IBAction)openSettingsWindow:(id)sender
+{
+    if (!self.settingsWindowController) {
+        self.settingsWindowController = [[SettingsWindowController alloc] initWithWindowNibName:@"SettingsWindow"];
+    }
+    [self.settingsWindowController.window makeKeyAndOrderFront:sender];
+    [self.settingsWindowController showWindow:sender];
 }
 
 @end
