@@ -49,8 +49,4 @@
     [[NSFileManager defaultManager] copyItemAtURL:fileURL toURL:serviceDirectoryBundleLocation error:NULL];
 }
 
-#pragma mark - File Helper
-
-
-
 @end
