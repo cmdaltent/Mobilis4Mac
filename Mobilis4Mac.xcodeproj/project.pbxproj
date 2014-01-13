@@ -14,6 +14,8 @@
 		5BA1E77E1807E89A0030C1FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1E77D1807E89A0030C1FF /* AppDelegate.m */; };
 		5BA1E7811807E89A0030C1FF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1E77F1807E89A0030C1FF /* MainMenu.xib */; };
 		5BA1E7831807E89A0030C1FF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1E7821807E89A0030C1FF /* Images.xcassets */; };
+		63005ECA1883C5090077C0DD /* SettingsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63005EC91883C5090077C0DD /* SettingsWindow.xib */; };
+		63005ECD1883C7870077C0DD /* SettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63005ECC1883C7870077C0DD /* SettingsWindowController.m */; };
 		B88CB41D32D24E90BCE096BB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8EC17DFE8A448788A6EB93 /* libPods.a */; };
 		E6F470B9F3EDB19ECBF035D1 /* SynchronizeRuntimeBean.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F473801A9B0BBD065F84B7 /* SynchronizeRuntimeBean.m */; };
 		E6F471812E321DFDCB2BE5F2 /* UploadWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F47FE4F48B0421ED26655E /* UploadWindowController.m */; };
@@ -41,6 +43,9 @@
 		5BA1E77D1807E89A0030C1FF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5BA1E7801807E89A0030C1FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5BA1E7821807E89A0030C1FF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		63005EC91883C5090077C0DD /* SettingsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsWindow.xib; sourceTree = "<group>"; };
+		63005ECB1883C7870077C0DD /* SettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsWindowController.h; sourceTree = "<group>"; };
+		63005ECC1883C7870077C0DD /* SettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsWindowController.m; sourceTree = "<group>"; };
 		BF8EC17DFE8A448788A6EB93 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6F47097EDD1827F3802E97E /* DeploymentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeploymentService.m; sourceTree = "<group>"; };
 		E6F47131B3312549812E0B57 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -77,6 +82,7 @@
 				5BA1E77F1807E89A0030C1FF /* MainMenu.xib */,
 				E6F47131B3312549812E0B57 /* MainWindow.xib */,
 				E6F475897D9377891971B545 /* UploadWindow.xib */,
+				63005EC91883C5090077C0DD /* SettingsWindow.xib */,
 			);
 			name = "User Interface Files";
 			sourceTree = "<group>";
@@ -183,6 +189,8 @@
 				E6F47FE4F48B0421ED26655E /* UploadWindowController.m */,
 				E6F47C56D6C6D11155AE7A13 /* MainWindowController.h */,
 				E6F47F7D4F3A30616495FA72 /* MainWindowController.m */,
+				63005ECB1883C7870077C0DD /* SettingsWindowController.h */,
+				63005ECC1883C7870077C0DD /* SettingsWindowController.m */,
 			);
 			path = "UI Controller";
 			sourceTree = "<group>";
@@ -243,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63005ECA1883C5090077C0DD /* SettingsWindow.xib in Resources */,
 				5BA1E7751807E89A0030C1FF /* InfoPlist.strings in Resources */,
 				5BA1E7831807E89A0030C1FF /* Images.xcassets in Resources */,
 				5BA1E77B1807E89A0030C1FF /* Credits.rtf in Resources */,
@@ -324,6 +333,7 @@
 				5BA1E7771807E89A0030C1FF /* main.m in Sources */,
 				E6F471812E321DFDCB2BE5F2 /* UploadWindowController.m in Sources */,
 				E6F47D545F82922668B043A5 /* MainWindowController.m in Sources */,
+				63005ECD1883C7870077C0DD /* SettingsWindowController.m in Sources */,
 				E6F477346A80693E11CB5980 /* LoggingService.m in Sources */,
 				E6F47B9AA05138D6397D1C8C /* DeploymentService.m in Sources */,
 				E6F47F117FC00AD301AE1BB3 /* MobilisRuntime.m in Sources */,
