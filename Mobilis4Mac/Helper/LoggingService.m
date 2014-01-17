@@ -75,7 +75,7 @@
 #if DEBUG
     NSLog(@"%@\n", logMessage);
 #endif
-    NSAttributedString *logString = [[NSAttributedString alloc] initWithString:logMessage
+    NSAttributedString *logString = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n", logMessage]
                                                                     attributes:@{NSForegroundColorAttributeName: [self colorForLogLevel:logLevel]}];
     for (id<LoggingServiceDelegate> delegate in _delegates)
         if (delegate != nil && delegate != NULL) {

@@ -9,6 +9,7 @@
 #import "UploadWindowController.h"
 #import "MobilisRuntime.h"
 #import "DeploymentService.h"
+#import "LoggingService.h"
 
 @interface UploadWindowController ()
 
@@ -53,7 +54,7 @@
 
     NSURL *localFileURL = [NSURL URLWithString:[self.bundleLocationTextField stringValue]];
     __autoreleasing NSError *error = nil;
-    [[MobilisRuntime mobilisRuntime].deploymentService installLocalFile:localFileURL error:&error];
+    NSURL *installLocation = [[MobilisRuntime mobilisRuntime].deploymentService installLocalFile:localFileURL error:&error];
     if (error) {
         NSAlert *alert = [NSAlert alertWithMessageText:@"File Installation Error"
                                          defaultButton:@"OK"
@@ -63,7 +64,9 @@
         alert.alertStyle = NSCriticalAlertStyle;
         [alert runModal];
     } else {
-
+        [[LoggingService loggingService] logMessage:[NSString stringWithFormat:@"Installed to location: %@", [installLocation absoluteString]]
+                                          withLevel:LS_INFO];
+        [[MobilisRuntime mobilisRuntime] loadServiceAtLocation:installLocation];
     }
 }
 

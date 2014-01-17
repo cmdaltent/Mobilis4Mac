@@ -13,7 +13,7 @@
 
 #pragma mark - Public Interface
 
-- (void)installLocalFile:(NSURL *)fileURL error:(NSError * __autoreleasing *)error
+- (NSURL *)installLocalFile:(NSURL *)fileURL error:(NSError * __autoreleasing *)error
 {
     NSString *fileName = [fileURL lastPathComponent];
 
@@ -26,7 +26,7 @@
     if (applicationDirectoryError) {
         [[LoggingService loggingService] logMessage:@"ApplicationSupport Directory could not be opened." withLevel:LS_ERROR];
         *error = applicationDirectoryError;
-        return;
+        return nil;
     }
 
     NSURL *serviceDirectory = [applicationSupportDirectory URLByAppendingPathComponent:@"MobilisRuntime/services" isDirectory:YES];
@@ -42,11 +42,12 @@
         if (createServicesDirectoryError) {
             [[LoggingService loggingService] logMessage:@"Services Directory could not be created." withLevel:LS_ERROR];
             *error = createServicesDirectoryError;
-            return;
+            return nil;
         }
     }
 
     [[NSFileManager defaultManager] copyItemAtURL:fileURL toURL:serviceDirectoryBundleLocation error:NULL];
+    return serviceDirectoryBundleLocation;
 }
 
 @end

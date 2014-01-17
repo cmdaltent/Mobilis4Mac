@@ -9,6 +9,6 @@
 
 @interface DeploymentService : NSObject
 
-- (void)installLocalFile:(NSURL *)fileURL error:(NSError * __autoreleasing *)error;
+- (NSURL *)installLocalFile:(NSURL *)fileURL error:(NSError * __autoreleasing *)error;
 
 @end
