@@ -67,6 +67,7 @@
         [[LoggingService loggingService] logMessage:[NSString stringWithFormat:@"Installed to location: %@", [installLocation absoluteString]]
                                           withLevel:LS_INFO];
         [[MobilisRuntime mobilisRuntime] loadServiceAtLocation:installLocation];
+        [self close];
     }
 }
 

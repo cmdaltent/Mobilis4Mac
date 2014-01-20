@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @class DeploymentService;
+@class MXiConnectionHandler;
 
 @interface MobilisRuntime : NSObject
 
+@property (nonatomic, readonly) MXiConnectionHandler *connectionHandler;
 @property (nonatomic, readonly) DeploymentService *deploymentService;
 
 + (instancetype)mobilisRuntime;

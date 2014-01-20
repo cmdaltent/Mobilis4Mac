@@ -10,16 +10,21 @@
 #import <MobilisMXi/MXi/Account.h>
 #import <MobilisMXi/MXi/DefaultSettings.h>
 #import <MobilisMXi/MXi/MXiBeanConverter.h>
+#import "MXiConnectionHandler.h"
 #import <MobilisMXi/MXi/AccountManager.h>
+#import <objc/runtime.h>
 #import "DeploymentService.h"
 #import "MobilisRuntime.h"
 #import "LoggingService.h"
 #import "MobilisService.h"
 #import "SynchronizeRuntimeBean.h"
+#import "SettingsManager.h"
+#import "InbandRegistration.h"
+#import "MainWindowController.h"
 
 @interface MobilisRuntime () <MXiConnectionHandlerDelegate>
 
-@property (nonatomic) MXiConnectionHandler *connectionHandler;
+@property (nonatomic, readwrite) MXiConnectionHandler *connectionHandler;
 @property (nonatomic, readwrite) DeploymentService *deploymentService;
 
 @property (nonatomic) NSMutableArray *startedServices;
@@ -79,17 +84,25 @@
 - (void)loadServiceAtLocation:(NSURL *)urlToBundle
 {
     NSBundle *serviceBundle = [NSBundle bundleWithURL:urlToBundle];
-    if (![[serviceBundle principalClass] isKindOfClass:[MobilisService class]]) {
+    if (![[class_getSuperclass([serviceBundle principalClass]) className] isEqualToString:[MobilisService className]]) {
         [[LoggingService loggingService] logMessage:@"Service Bundle's principal class is invalid."
                                           withLevel:LS_ERROR];
         return;
     }
 
-    // TODO: Finish Upload
-//    MobilisService *service = [((MobilisService *)[serviceBundle principalClass]) initService];
-//    [self.startedServices addObject:service];
-
-    [self synchronize];
+    InbandRegistration *inbandRegistration = [[InbandRegistration alloc] initInbandRegistrationWithUsername:@"testService"
+                                                                                                   password:@"123456"];
+    [inbandRegistration launchRegistrationWithCompletionBlock:^(NSError *error)
+    {
+        SettingsManager *settingsManager = [SettingsManager new];
+        MobilisService *service = [((MobilisService *)[[serviceBundle principalClass] alloc]) initServiceWithJID:[XMPPJID jidWithString:@"testservice@localhost"]
+                                                                                                        password:@"123456"
+                                                                                                        hostName:settingsManager.account.hostName
+                                                                                                            port:settingsManager.account.port];
+        [self.startedServices addObject:service];
+        [[LoggingService loggingService] logMessage:@"Service Installation successful" withLevel:LS_INFO];
+    }];
+//    [self synchronize];
 }
 
 - (void)synchronize

@@ -45,7 +45,16 @@
             return nil;
         }
     }
-
+    
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[serviceDirectoryBundleLocation absoluteString]]) {
+        NSError *removeError = nil;
+        [[NSFileManager defaultManager] removeItemAtURL:serviceDirectoryBundleLocation error:&removeError];
+        if (removeError) {
+            [[LoggingService loggingService] logMessage:@"Service could not be updated." withLevel:LS_ERROR];
+            return nil;
+        }
+    }
     [[NSFileManager defaultManager] copyItemAtURL:fileURL toURL:serviceDirectoryBundleLocation error:NULL];
     return serviceDirectoryBundleLocation;
 }
