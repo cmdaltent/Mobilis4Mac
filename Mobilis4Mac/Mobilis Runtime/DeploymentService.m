@@ -48,11 +48,6 @@
     if (![self serviceDirectoryExists:serviceDirectory]) return nil;
     if (![self removeOldService:serviceDirectoryBundleLocation]) return nil;
 
-//    NSError *storageError = nil;
-//    BOOL fileStored = [[NSFileManager defaultManager] createDirectoryAtURL:serviceDirectoryBundleLocation
-//                                               withIntermediateDirectories:YES
-//                                                                attributes:nil
-//                                                                     error:&storageError];
     NSError *writeError = nil;
     [bundleData writeToURL:serviceDirectoryBundleLocation
                    options:NSDataWritingAtomic

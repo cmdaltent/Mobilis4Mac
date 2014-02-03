@@ -4,8 +4,10 @@
 //
 
 #import <CocoaAsyncSocket/GCDAsyncSocket.h>
+#import <XMPPFramework/XMPPIQ.h>
 #import "MobilisSocket.h"
 #import "LoggingService.h"
+#import "NSXMLElement+XMPP.h"
 
 #define MOBILIS_FILE_UPLOAD      1000
 
@@ -22,6 +24,11 @@
     self = [super initWithStream:stream incomingTURNRequest:iq];
     if (self)
     {
+        if (![self validTURNRequest:iq])
+            @throw [NSException exceptionWithName:@"Malformed Request"
+                                           reason:@"The incoming TURN Request is invalid"
+                                         userInfo:nil];
+
         self.fileData = [NSMutableData new];
     }
     return self;
@@ -35,6 +42,22 @@
         self.fileData = [NSMutableData new];
     }
     return self;
+}
+
+- (BOOL)validTURNRequest:(XMPPIQ *)request
+{
+    if (![request elementID]) return NO;
+    if (![request childElement] || ![[request childElement].name isEqualToString:@"query"]) return NO;
+    if ([[request childElement] elementsForName:@"streamhost"].count == 0) return NO;
+
+    NSArray *hostNames = [[request childElement] elementsForName:@"streamhost"];
+    for (NSXMLElement *hostName in hostNames)
+        if (    [[hostName attributeStringValueForName:@"jid"] isEqualToString:@""] ||
+                [[hostName attributeStringValueForName:@"host"] isEqualToString:@""] ||
+                [[hostName attributeStringValueForName:@"port"] isEqualToString:@""]
+           ) return NO;
+
+    return YES;
 }
 
 - (void)readFileWithSize:(NSUInteger)fileSize

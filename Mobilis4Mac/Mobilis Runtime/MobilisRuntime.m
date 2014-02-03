@@ -197,10 +197,14 @@
     if ([xmppiq isSetIQ] && [[xmppiq childElement].name isEqualToString:@"si"])
         [self processSessionInitiationOffer:xmppiq];
     if (self.isExpectingFileTransfer && [xmppiq isSetIQ] && [[xmppiq childElement].name isEqualToString:@"query"]) {
+        @try {
         _currentSocketConnection = [[MobilisSocket alloc] initWithStream:self.connectionHandler.connection.xmppStream
                                                      incomingTURNRequest:xmppiq];
         _currentSocketConnection.delegate = self;
-        if (!socket) [self.connectionHandler sendElement:[self createBadRequestResponseForIQ:xmppiq]]; //FIXME: check for malformed TURNRequest
+        } @catch (NSException *exception) {
+            [self.connectionHandler sendElement:[self createBadRequestResponseForIQ:xmppiq]];
+            return;
+        }
         [_currentSocketConnection startWithDelegate:self delegateQueue:dispatch_get_main_queue()];
     }
     if ([xmppiq isGetIQ] && [[[[[xmppiq childElement] namespaces] firstObject] stringValue] isEqualToString:@"http://jabber.org/protocol/disco#info"])
@@ -250,7 +254,9 @@
             singleMode = [childElement stringValueAsBool];
     }
     
-    self.isExpectingFileTransfer = YES;
+    if ([_currentUploadFileName rangeOfString:@".jar"].location == NSNotFound)
+        self.isExpectingFileTransfer = YES;
+    else self.isExpectingFileTransfer = NO;
 
     NSXMLElement *prepareServiceUploadResult = [NSXMLElement elementWithName:@"prepareServiceUpload"
                                                                        xmlns:@"http://mobilis.inf.tu-dresden.de#XMPPBeans:admin:prepareServiceUpload"];
