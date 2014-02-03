@@ -16,6 +16,10 @@
 		5BA1E7831807E89A0030C1FF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1E7821807E89A0030C1FF /* Images.xcassets */; };
 		63005ECA1883C5090077C0DD /* SettingsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63005EC91883C5090077C0DD /* SettingsWindow.xib */; };
 		63005ECD1883C7870077C0DD /* SettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63005ECC1883C7870077C0DD /* SettingsWindowController.m */; };
+		63B32043189FA370005EC75E /* ServiceStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63B32041189FA370005EC75E /* ServiceStorage.xcdatamodeld */; };
+		63B32044189FA37E005EC75E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA1E76E1807E89A0030C1FF /* CoreData.framework */; };
+		63B32047189FA446005EC75E /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B32046189FA446005EC75E /* Service.m */; };
+		63B3204A189FA473005EC75E /* PersistenceStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B32049189FA473005EC75E /* PersistenceStack.m */; };
 		B88CB41D32D24E90BCE096BB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8EC17DFE8A448788A6EB93 /* libPods.a */; };
 		E6F470B9F3EDB19ECBF035D1 /* SynchronizeRuntimeBean.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F473801A9B0BBD065F84B7 /* SynchronizeRuntimeBean.m */; };
 		E6F470EB541E666C6F3DB889 /* RandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F477D10C84A1799AFA713B /* RandomString.m */; };
@@ -50,6 +54,11 @@
 		63005EC91883C5090077C0DD /* SettingsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsWindow.xib; sourceTree = "<group>"; };
 		63005ECB1883C7870077C0DD /* SettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsWindowController.h; sourceTree = "<group>"; };
 		63005ECC1883C7870077C0DD /* SettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsWindowController.m; sourceTree = "<group>"; };
+		63B32042189FA370005EC75E /* ServiceStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ServiceStorage.xcdatamodel; sourceTree = "<group>"; };
+		63B32045189FA446005EC75E /* Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Service.h; sourceTree = "<group>"; };
+		63B32046189FA446005EC75E /* Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Service.m; sourceTree = "<group>"; };
+		63B32048189FA473005EC75E /* PersistenceStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistenceStack.h; sourceTree = "<group>"; };
+		63B32049189FA473005EC75E /* PersistenceStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistenceStack.m; sourceTree = "<group>"; };
 		BF8EC17DFE8A448788A6EB93 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6F47097EDD1827F3802E97E /* DeploymentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeploymentService.m; sourceTree = "<group>"; };
 		E6F47131B3312549812E0B57 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -80,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63B32044189FA37E005EC75E /* CoreData.framework in Frameworks */,
 				5BA1E76B1807E89A0030C1FF /* Cocoa.framework in Frameworks */,
 				B88CB41D32D24E90BCE096BB /* libPods.a in Frameworks */,
 			);
@@ -140,6 +150,7 @@
 		5BA1E7701807E89A0030C1FF /* Mobilis4Mac */ = {
 			isa = PBXGroup;
 			children = (
+				63B32040189FA346005EC75E /* Service Storage */,
 				5BA1E77C1807E89A0030C1FF /* AppDelegate.h */,
 				5BA1E77D1807E89A0030C1FF /* AppDelegate.m */,
 				5B864C0A180BD07B005ABD98 /* User Interface Files */,
@@ -162,6 +173,18 @@
 				5BA1E7791807E89A0030C1FF /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63B32040189FA346005EC75E /* Service Storage */ = {
+			isa = PBXGroup;
+			children = (
+				63B32041189FA370005EC75E /* ServiceStorage.xcdatamodeld */,
+				63B32045189FA446005EC75E /* Service.h */,
+				63B32046189FA446005EC75E /* Service.m */,
+				63B32048189FA473005EC75E /* PersistenceStack.h */,
+				63B32049189FA473005EC75E /* PersistenceStack.m */,
+			);
+			name = "Service Storage";
 			sourceTree = "<group>";
 		};
 		E6F4769BAC75BAE58DDC6337 /* Helper */ = {
@@ -354,12 +377,15 @@
 				E6F471812E321DFDCB2BE5F2 /* UploadWindowController.m in Sources */,
 				E6F47D545F82922668B043A5 /* MainWindowController.m in Sources */,
 				63005ECD1883C7870077C0DD /* SettingsWindowController.m in Sources */,
+				63B32047189FA446005EC75E /* Service.m in Sources */,
 				E6F477346A80693E11CB5980 /* LoggingService.m in Sources */,
 				E6F47B9AA05138D6397D1C8C /* DeploymentService.m in Sources */,
 				E6F47F117FC00AD301AE1BB3 /* MobilisRuntime.m in Sources */,
 				E6F470B9F3EDB19ECBF035D1 /* SynchronizeRuntimeBean.m in Sources */,
 				E6F472E2B26B9B1C452A4BCA /* SettingsManager.m in Sources */,
 				E6F47737A55BAA3760A7B7FA /* InbandRegistration.m in Sources */,
+				63B32043189FA370005EC75E /* ServiceStorage.xcdatamodeld in Sources */,
+				63B3204A189FA473005EC75E /* PersistenceStack.m in Sources */,
 				E6F470EB541E666C6F3DB889 /* RandomString.m in Sources */,
 				E6F47A50FEF7CB413815B674 /* MobilisSocket.m in Sources */,
 			);
@@ -515,6 +541,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		63B32041189FA370005EC75E /* ServiceStorage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				63B32042189FA370005EC75E /* ServiceStorage.xcdatamodel */,
+			);
+			currentVersion = 63B32042189FA370005EC75E /* ServiceStorage.xcdatamodel */;
+			path = ServiceStorage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5BA1E75F1807E89A0030C1FF /* Project object */;
 }

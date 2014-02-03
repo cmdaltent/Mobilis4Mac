@@ -20,6 +20,8 @@
 #import "InbandRegistration.h"
 #import "TURNSocket.h"
 #import "MobilisSocket.h"
+#import "PersistenceStack.h"
+#import "Service.h"
 
 @interface MobilisRuntime () <MXiConnectionHandlerDelegate, TURNSocketDelegate, MobilisSocketDelegate>
 
@@ -27,6 +29,7 @@
 @property (nonatomic, readwrite) DeploymentService *deploymentService;
 
 @property (nonatomic) NSMutableArray *startedServices;
+@property (nonatomic) NSMutableArray *runningInbandRegistrations;
 
 /// Will be set to YES, when a file transfer has been negotiated according XEP-0096
 @property(nonatomic) BOOL isExpectingFileTransfer;
@@ -61,6 +64,8 @@
 
     self.startedServices = [NSMutableArray arrayWithCapacity:5];
     self.isExpectingFileTransfer = NO;
+    
+    self.runningInbandRegistrations = [NSMutableArray arrayWithCapacity:5];
 
     return [self init];
 }
@@ -96,20 +101,42 @@
         return;
     }
 
-    InbandRegistration *inbandRegistration = [[InbandRegistration alloc] initInbandRegistrationWithUsername:@"testService"
-                                                                                                   password:@"123456"];
-    [inbandRegistration launchRegistrationWithCompletionBlock:^(NSError *error)
-    {
+    NSManagedObjectContext *moc = [PersistenceStack persistenceStack].managedObjectContext;
+    NSArray *results = [moc executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"Service"] error:nil]; //FIXME: Generate JID and check if already existing.
+    if (results.count == 0) {
+        InbandRegistration *inbandRegistration = [[InbandRegistration alloc] initInbandRegistrationWithUsername:@"testService"
+                                                                                                       password:@"123456"];
+        [self.runningInbandRegistrations addObject:inbandRegistration];
+        [inbandRegistration launchRegistrationWithCompletionBlock:^(NSError *error)
+        {
+            [[MobilisRuntime mobilisRuntime].runningInbandRegistrations removeObject:inbandRegistration];
+            if (error.code == 409) {
+                [[LoggingService loggingService] logMessage:@"User already created" withLevel:LS_ERROR];
+                return;
+            }
+            SettingsManager *settingsManager = [SettingsManager new];
+            MobilisService *service = [((MobilisService *)[[serviceBundle principalClass] alloc]) initServiceWithJID:[XMPPJID jidWithString:@"testservice@localhost"]
+                                                                                                            password:@"123456"
+                                                                                                            hostName:settingsManager.account.hostName
+                                                                                                                port:settingsManager.account.port];
+            [[MobilisRuntime mobilisRuntime].startedServices addObject:service];
+            [[LoggingService loggingService] logMessage:@"Service Installation successful. Inband Registration successful." withLevel:LS_INFO];
+        }];
+    } else if (results.count > 1) {
+        [[LoggingService loggingService] logMessage:@"Too many users with this JID registered." withLevel:LS_ERROR];
+    } else {
         SettingsManager *settingsManager = [SettingsManager new];
-        MobilisService *service = [((MobilisService *)[[serviceBundle principalClass] alloc]) initServiceWithJID:[XMPPJID jidWithString:@"testservice@localhost"]
-                                                                                                        password:@"123456"
-                                                                                                        hostName:settingsManager.account.hostName
-                                                                                                            port:settingsManager.account.port];
-        [self.startedServices addObject:service];
-        [[LoggingService loggingService] logMessage:@"Service Installation successful" withLevel:LS_INFO];
-    }];
+        Service *service = [results firstObject];
+        MobilisService *mService = [((MobilisService *)[[serviceBundle principalClass] alloc]) initServiceWithJID:[XMPPJID jidWithString:service.jabberID]
+                                                                                                         password:service.password
+                                                                                                         hostName:settingsManager.account.hostName
+                                                                                                             port:settingsManager.account.port];
+        [self.startedServices addObject:mService];
+        [[LoggingService loggingService] logMessage:@"Service Installation successful." withLevel:LS_INFO];
+    }
     // TODO enable synchronize again
 //    [self synchronize];
+        
 }
 
 - (void)synchronize

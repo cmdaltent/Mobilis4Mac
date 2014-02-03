@@ -27,6 +27,7 @@
     _password = nil;
 
     [[MobilisRuntime mobilisRuntime].connectionHandler.connection removeStanzaDelegate:self forStanzaElement:IQ];
+    [[MobilisRuntime mobilisRuntime].connectionHandler.connection removeErrorDelegate:self];
 }
 
 - (id)initInbandRegistrationWithUsername:(NSString *)username password:(NSString *)password
@@ -40,6 +41,8 @@
         [[MobilisRuntime mobilisRuntime].connectionHandler.connection addStanzaDelegate:self
                                                                            withSelector:@selector(iqStanzaReceived:)
                                                                        forStanzaElement:IQ];
+        [[MobilisRuntime mobilisRuntime].connectionHandler.connection addErrorDelegate:self
+                                                                           withSelecor:@selector(iqErrorReceived:)];
     }
 
     return self;
@@ -128,6 +131,24 @@
                            to:[XMPPJID jidWithString:[SettingsManager new].account.hostName]
                     elementID:[self generateID]
                         child:registerQuery];
+}
+
+#pragma mark - Error Delegate Implementation
+
+- (void)iqErrorReceived:(NSXMLElement *)errorIQ
+{
+    for (NSXMLElement *element in [errorIQ children]) {
+        if ([element.name isEqualToString:@"error"]) {
+            [self processErrorIQ:element];
+        }
+    }
+}
+
+- (void)processErrorIQ:(NSXMLElement *)errorElement
+{
+    if ([[errorElement attributeStringValueForName:@"code"] isEqualToString:@"409"]) {
+        _completionBlock([NSError errorWithDomain:@"Service Already Registered" code:409 userInfo:nil]);
+    }
 }
 
 @end
