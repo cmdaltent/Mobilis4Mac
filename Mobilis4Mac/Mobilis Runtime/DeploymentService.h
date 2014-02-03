@@ -11,4 +11,6 @@
 
 - (NSURL *)installLocalFile:(NSURL *)fileURL error:(NSError * __autoreleasing *)error;
 
+- (NSURL *)installUploadedBundle:(NSData *)bundleData withFileName:(NSString *)fileName error:(NSError *__autoreleasing *)error;
+
 @end

@@ -25,6 +25,7 @@
 		E6F475B5C14837CCD2003DF1 /* UploadWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6F475897D9377891971B545 /* UploadWindow.xib */; };
 		E6F477346A80693E11CB5980 /* LoggingService.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F474168A3B1934E083A723 /* LoggingService.m */; };
 		E6F47737A55BAA3760A7B7FA /* InbandRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F47E7C08F3DF91BF989294 /* InbandRegistration.m */; };
+		E6F47A50FEF7CB413815B674 /* MobilisSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F477F69177D12379994D8F /* MobilisSocket.m */; };
 		E6F47B9AA05138D6397D1C8C /* DeploymentService.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F47097EDD1827F3802E97E /* DeploymentService.m */; };
 		E6F47D545F82922668B043A5 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F47F7D4F3A30616495FA72 /* MainWindowController.m */; };
 		E6F47F117FC00AD301AE1BB3 /* MobilisRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F478A47CA7FF68A38E69E8 /* MobilisRuntime.m */; };
@@ -53,11 +54,13 @@
 		E6F47097EDD1827F3802E97E /* DeploymentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeploymentService.m; sourceTree = "<group>"; };
 		E6F47131B3312549812E0B57 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		E6F473801A9B0BBD065F84B7 /* SynchronizeRuntimeBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchronizeRuntimeBean.m; sourceTree = "<group>"; };
+		E6F47395B828DA176C7D8A68 /* MobilisSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilisSocket.h; sourceTree = "<group>"; };
 		E6F474168A3B1934E083A723 /* LoggingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingService.m; sourceTree = "<group>"; };
 		E6F475218104E567C868A537 /* RandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomString.h; sourceTree = "<group>"; };
 		E6F475897D9377891971B545 /* UploadWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadWindow.xib; sourceTree = "<group>"; };
 		E6F476B8B6CA91B07EB5928C /* InbandRegistration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InbandRegistration.h; sourceTree = "<group>"; };
 		E6F477D10C84A1799AFA713B /* RandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomString.m; sourceTree = "<group>"; };
+		E6F477F69177D12379994D8F /* MobilisSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilisSocket.m; sourceTree = "<group>"; };
 		E6F478A47CA7FF68A38E69E8 /* MobilisRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilisRuntime.m; sourceTree = "<group>"; };
 		E6F4793397565A5FAE006D45 /* LoggingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingService.h; sourceTree = "<group>"; };
 		E6F47984F2A541477385A0B8 /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsManager.m; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 				E6F478A59290B1C961154880 /* Beans */,
 				E6F47E7C08F3DF91BF989294 /* InbandRegistration.m */,
 				E6F476B8B6CA91B07EB5928C /* InbandRegistration.h */,
+				E6F477F69177D12379994D8F /* MobilisSocket.m */,
+				E6F47395B828DA176C7D8A68 /* MobilisSocket.h */,
 			);
 			path = "Mobilis Runtime";
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 				E6F472E2B26B9B1C452A4BCA /* SettingsManager.m in Sources */,
 				E6F47737A55BAA3760A7B7FA /* InbandRegistration.m in Sources */,
 				E6F470EB541E666C6F3DB889 /* RandomString.m in Sources */,
+				E6F47A50FEF7CB413815B674 /* MobilisSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
