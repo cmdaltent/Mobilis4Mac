@@ -22,7 +22,7 @@
     static PersistenceStack *__sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        __sharedInstance = [[super allocWithZone:NULL] initUnique];
+        __sharedInstance = [(PersistenceStack *)[super allocWithZone:NULL] initUnique];
     });
     return __sharedInstance;
 }
