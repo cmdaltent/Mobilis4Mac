@@ -288,8 +288,7 @@
     [query addChild:identity];
     [query addChild:[NSXMLElement elementWithName:@"feature" attributeName:@"var" attributeValue:@"http://jabber.org/protocol/si"]];
     [query addChild:[NSXMLElement elementWithName:@"feature" attributeName:@"var" attributeValue:@"http://jabber.org/protocol/si/profile/file-transfer"]];
-    // FIXME: Next line: return disco String according Philips DA. Entity Capabilies.
-    [query addChild:[NSXMLElement elementWithName:@"feature" attributeName:@"var" attributeValue:@"http://mobilis.inf.tu-dresden.de/instance#servicenamespace=,version=1,name=Obj-C Runtime Service,rt=mobilis@localhost"]];
+    [query addChild:[NSXMLElement elementWithName:@"feature" attributeName:@"var" attributeValue:@"http://mobilis.inf.tu-dresden.de/instance#servicenamespace=,version=1,name=Obj-C Runtime Service,rt=mobilis@localhost,servicelanguage=objc"]];
     [query addChild:[NSXMLElement elementWithName:@"feature" attributeName:@"var" attributeValue:@"http://jabber.org/protocol/disco#info"]];
     [query addChild:[NSXMLElement elementWithName:@"feature" attributeName:@"var" attributeValue:@"http://jabber.org/protocol/disco#items"]];
     [query addChild:[NSXMLElement elementWithName:@"feature" attributeName:@"var" attributeValue:@"http://jabber.org/protocol/bytestreams"]];
