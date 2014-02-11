@@ -71,7 +71,10 @@
 + (NSString *)generateServiceJid:(NSString *)serviceName
 {
     SettingsManager *settingsManager = [SettingsManager new];
-    return [NSString stringWithFormat:@"%@.%@", [XMPPJID jidWithString:settingsManager.account.jid].user, [serviceName lowercaseString]];
+    return [NSString stringWithFormat:@"%@.%@@%@",
+                    [XMPPJID jidWithString:settingsManager.account.jid].user,
+                    [serviceName lowercaseString],
+                    settingsManager.account.hostName];
 }
 
 #pragma mark - Stanza Delegate Implementation

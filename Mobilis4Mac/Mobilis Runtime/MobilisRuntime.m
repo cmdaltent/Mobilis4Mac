@@ -122,7 +122,7 @@
             return; // TODO: launch removal of deployed service here.
         }
 
-        InbandRegistration *inbandRegistration = [[InbandRegistration alloc] initInbandRegistrationWithUsername:cdService.jabberID
+        InbandRegistration *inbandRegistration = [[InbandRegistration alloc] initInbandRegistrationWithUsername:[XMPPJID jidWithString:cdService.jabberID].user
                                                                                                        password:cdService.password];
         [self.runningInbandRegistrations addObject:inbandRegistration];
         [inbandRegistration launchRegistrationWithCompletionBlock:^(NSError *error)
@@ -133,8 +133,8 @@
                 return;
             }
             SettingsManager *settingsManager = [SettingsManager new];
-            MobilisService *service = [((MobilisService *)[[serviceBundle principalClass] alloc]) initServiceWithJID:[XMPPJID jidWithString:@"testservice@localhost"]
-                                                                                                            password:@"123456"
+            MobilisService *service = [((MobilisService *)[[serviceBundle principalClass] alloc]) initServiceWithJID:[XMPPJID jidWithString:cdService.jabberID]
+                                                                                                            password:cdService.password
                                                                                                             hostName:settingsManager.account.hostName
                                                                                                                 port:settingsManager.account.port];
             [[MobilisRuntime mobilisRuntime].startedServices addObject:service];
@@ -183,10 +183,29 @@
 
     [[LoggingService loggingService] logMessage:[NSString stringWithFormat:@"Connected as %@", self.connectionHandler.connection.jabberID.full]
                                       withLevel:LS_INFO];
-    // TODO: Launch uploaded services here.
+
     [self.connectionHandler.connection addStanzaDelegate:self
                                             withSelector:@selector(iqStanzaReceived:)
                                         forStanzaElement:IQ];
+
+    NSError *error = nil;
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Service"];
+    NSArray *registeredServices = [[PersistenceStack persistenceStack].managedObjectContext executeFetchRequest:fetchRequest
+                                                                                                          error:&error];
+    if (error) {
+        [[LoggingService loggingService] logMessage:@"Could not read installed services from persistent library"
+                                          withLevel:LS_ERROR];
+        return;
+    }
+
+    SettingsManager *settingsManager = [SettingsManager new];
+    for (Service *cdService in registeredServices) {
+        MobilisService *mService = [[MobilisService alloc] initServiceWithJID:[XMPPJID jidWithString:cdService.jabberID]
+                                                                     password:cdService.password
+                                                                     hostName:settingsManager.account.hostName
+                                                                         port:settingsManager.account.port];
+        [self.startedServices addObject:mService];
+    }
 }
 
 - (void)connectionDidDisconnect:(NSError *)error
