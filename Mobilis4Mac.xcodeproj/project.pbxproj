@@ -30,6 +30,7 @@
 		E6F477346A80693E11CB5980 /* LoggingService.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F474168A3B1934E083A723 /* LoggingService.m */; };
 		E6F47737A55BAA3760A7B7FA /* InbandRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F47E7C08F3DF91BF989294 /* InbandRegistration.m */; };
 		E6F47A50FEF7CB413815B674 /* MobilisSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F477F69177D12379994D8F /* MobilisSocket.m */; };
+		E6F47B269DBEE4AA679AFD86 /* NSBundle+Mobilis.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F47A233ACA58D7B739F075 /* NSBundle+Mobilis.m */; };
 		E6F47B9AA05138D6397D1C8C /* DeploymentService.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F47097EDD1827F3802E97E /* DeploymentService.m */; };
 		E6F47D545F82922668B043A5 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F47F7D4F3A30616495FA72 /* MainWindowController.m */; };
 		E6F47F117FC00AD301AE1BB3 /* MobilisRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F478A47CA7FF68A38E69E8 /* MobilisRuntime.m */; };
@@ -73,10 +74,12 @@
 		E6F478A47CA7FF68A38E69E8 /* MobilisRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilisRuntime.m; sourceTree = "<group>"; };
 		E6F4793397565A5FAE006D45 /* LoggingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingService.h; sourceTree = "<group>"; };
 		E6F47984F2A541477385A0B8 /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsManager.m; sourceTree = "<group>"; };
+		E6F47A233ACA58D7B739F075 /* NSBundle+Mobilis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Mobilis.m"; sourceTree = "<group>"; };
 		E6F47A388EC73DE762DDCADE /* SynchronizeRuntimeBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronizeRuntimeBean.h; sourceTree = "<group>"; };
 		E6F47C283A614CC5DD0108E6 /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsManager.h; sourceTree = "<group>"; };
 		E6F47C56D6C6D11155AE7A13 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		E6F47D63CC03702F2DFE9D8C /* DeploymentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeploymentService.h; sourceTree = "<group>"; };
+		E6F47D6D66E4E43454D8E576 /* NSBundle+Mobilis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Mobilis.h"; sourceTree = "<group>"; };
 		E6F47E0F046257BBBD7171B6 /* UploadWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadWindowController.h; sourceTree = "<group>"; };
 		E6F47E3320E1F5DF26EB20BA /* MobilisRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilisRuntime.h; sourceTree = "<group>"; };
 		E6F47E7C08F3DF91BF989294 /* InbandRegistration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InbandRegistration.m; sourceTree = "<group>"; };
@@ -196,6 +199,7 @@
 				E6F47C283A614CC5DD0108E6 /* SettingsManager.h */,
 				E6F477D10C84A1799AFA713B /* RandomString.m */,
 				E6F475218104E567C868A537 /* RandomString.h */,
+				E6F47A949075B320E8D1A5AC /* Categories */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -236,6 +240,15 @@
 				63005ECC1883C7870077C0DD /* SettingsWindowController.m */,
 			);
 			path = "UI Controller";
+			sourceTree = "<group>";
+		};
+		E6F47A949075B320E8D1A5AC /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E6F47A233ACA58D7B739F075 /* NSBundle+Mobilis.m */,
+				E6F47D6D66E4E43454D8E576 /* NSBundle+Mobilis.h */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,6 +401,7 @@
 				63B3204A189FA473005EC75E /* PersistenceStack.m in Sources */,
 				E6F470EB541E666C6F3DB889 /* RandomString.m in Sources */,
 				E6F47A50FEF7CB413815B674 /* MobilisSocket.m in Sources */,
+				E6F47B269DBEE4AA679AFD86 /* NSBundle+Mobilis.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

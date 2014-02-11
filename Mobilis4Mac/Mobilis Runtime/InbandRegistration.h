@@ -10,6 +10,8 @@
 
 - (id)initInbandRegistrationWithUsername:(NSString *)username password:(NSString *)password;
 
++ (NSString *)generateServiceJid:(NSString *)serviceName;
+
 - (void)launchRegistrationWithCompletionBlock:(void (^)(NSError *error))completionBlock;
 
 @end

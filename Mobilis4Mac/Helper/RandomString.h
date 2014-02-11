@@ -10,4 +10,6 @@
 
 + (NSString *)randomStringWithLength:(NSUInteger)length;
 
++ (NSString *)generatePassword;
+
 @end

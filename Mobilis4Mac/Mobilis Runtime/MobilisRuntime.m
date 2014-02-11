@@ -22,6 +22,8 @@
 #import "MobilisSocket.h"
 #import "PersistenceStack.h"
 #import "Service.h"
+#import "RandomString.h"
+#import "NSBundle+Mobilis.h"
 
 @interface MobilisRuntime () <MXiConnectionHandlerDelegate, TURNSocketDelegate, MobilisSocketDelegate>
 
@@ -102,10 +104,26 @@
     }
 
     NSManagedObjectContext *moc = [PersistenceStack persistenceStack].managedObjectContext;
-    NSArray *results = [moc executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"Service"] error:nil]; //FIXME: Generate JID and check if already existing.
+    NSFetchRequest *serviceFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Service"];
+    serviceFetchRequest.predicate = [NSPredicate predicateWithFormat:@"name LIKE %@", [serviceBundle bundleName]];
+    NSArray *results = [moc executeFetchRequest:serviceFetchRequest
+                                          error:nil];
     if (results.count == 0) {
-        InbandRegistration *inbandRegistration = [[InbandRegistration alloc] initInbandRegistrationWithUsername:@"testService"
-                                                                                                       password:@"123456"];
+        NSString *serviceName = [serviceBundle bundleName];
+        Service *cdService = [[Service alloc] initWithServiceName:serviceName
+                                                         location:urlToBundle
+                                                      andJabberID:[InbandRegistration generateServiceJid:serviceName]
+                                                         password:[RandomString generatePassword]];
+        NSError *serviceCreationWriteError = nil;
+        [[[PersistenceStack persistenceStack] managedObjectContext] save:&serviceCreationWriteError];
+        if (serviceCreationWriteError)
+        {
+            [[LoggingService loggingService] logMessage:@"Service Bundle information could not be saved." withLevel:LS_ERROR];
+            return; // TODO: launch removal of deployed service here.
+        }
+
+        InbandRegistration *inbandRegistration = [[InbandRegistration alloc] initInbandRegistrationWithUsername:cdService.jabberID
+                                                                                                       password:cdService.password];
         [self.runningInbandRegistrations addObject:inbandRegistration];
         [inbandRegistration launchRegistrationWithCompletionBlock:^(NSError *error)
         {
