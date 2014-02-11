@@ -7,6 +7,7 @@
 //
 
 #import "PersistenceStack.h"
+#import "LoggingService.h"
 
 @interface PersistenceStack ()
 
@@ -49,7 +50,7 @@
     [self.managedObjectContext.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[self storeURL] options:nil error:&error];
     if (error)
     {
-        // TODO: Log PersistenceStack setup error.
+        [[LoggingService loggingService] logMessage:@"Could not load Persistence Stack." withLevel:LS_ERROR];
     }
 }
 - (NSManagedObjectModel *)managedObjectModel
@@ -71,7 +72,8 @@
                                                                   error:nil];
     if (!success)
     {
-        // TODO: implement error when persistentDirectory could not be created.
+        [[LoggingService loggingService] logMessage:@"Could not create persistence directory. Make sure you the application has write access for '~/Library/Application Support'"
+                                          withLevel:LS_ERROR];
     }
     return [runtimeURL URLByAppendingPathComponent:@"mobilis.sqlite"];
 }
