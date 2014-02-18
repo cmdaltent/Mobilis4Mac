@@ -11,6 +11,7 @@
 #import <MobilisMXi/MXi/MXiBeanConverter.h>
 #import <MobilisMXi/MXi/AccountManager.h>
 #import <objc/runtime.h>
+#import <XMPPFramework/XMPPUserCoreDataStorageObject.h>
 #import "DeploymentService.h"
 #import "MobilisRuntime.h"
 #import "LoggingService.h"
@@ -24,11 +25,15 @@
 #import "Service.h"
 #import "RandomString.h"
 #import "NSBundle+Mobilis.h"
+#import "MobilisRoster.h"
+#import "MXiServiceConnectionHandler.h"
 
 @interface MobilisRuntime () <MXiConnectionHandlerDelegate, TURNSocketDelegate, MobilisSocketDelegate>
 
 @property (nonatomic, readwrite) MXiConnectionHandler *connectionHandler;
 @property (nonatomic, readwrite) DeploymentService *deploymentService;
+
+@property (nonatomic) MobilisRoster *mobilisRoster;
 
 @property (nonatomic) NSMutableArray *startedServices;
 @property (nonatomic) NSMutableArray *runningInbandRegistrations;
@@ -152,22 +157,24 @@
         [self.startedServices addObject:mService];
         [[LoggingService loggingService] logMessage:@"Service Installation successful." withLevel:LS_INFO];
     }
-    // TODO enable synchronize again
-//    [self synchronize];
-        
+
+    [self synchronize];
 }
 
 - (void)synchronize
 {
     NSMutableArray *serviceJIDs = [NSMutableArray arrayWithCapacity:self.startedServices.count];
-    for (MXiService *service in self.startedServices)
-        [serviceJIDs addObject:service.jid.full];
+    for (MobilisService *service in self.startedServices)
+        [serviceJIDs addObject:service.connectionHandler.connection.jabberID.full];
 
-    // FIXME: retrieve remote runtime address from user's roster
-    SynchronizeRuntimeBean *synchronizeRuntimeBean = [SynchronizeRuntimeBean syncrhonizeServices:[NSArray arrayWithArray:serviceJIDs]
-                                                                               withRemoteRuntime:@"mobilis@localhost/Deployment"];
-    [synchronizeRuntimeBean setServiceJIDs:serviceJIDs];
-    [[MXiConnectionHandler sharedInstance] sendElement:[MXiBeanConverter beanToIQ:synchronizeRuntimeBean]];
+    NSArray *remoteRuntimes = [self.mobilisRoster remoteMobilisRuntimes];
+    for (XMPPJID *runtime in remoteRuntimes)
+    {
+        SynchronizeRuntimeBean *synchronizeRuntimeBean = [SynchronizeRuntimeBean syncrhonizeServices:[NSArray arrayWithArray:serviceJIDs]
+                                                                                   withRemoteRuntime:[NSString stringWithFormat:@"%@/Deployment", runtime.bare]];
+        [synchronizeRuntimeBean setServiceJIDs:serviceJIDs];
+        [[MXiConnectionHandler sharedInstance] sendElement:[MXiBeanConverter beanToIQ:synchronizeRuntimeBean]];
+    }
 }
 
 #pragma mark - MXiConnectionHandlerDelegate
@@ -187,6 +194,8 @@
     [self.connectionHandler.connection addStanzaDelegate:self
                                             withSelector:@selector(iqStanzaReceived:)
                                         forStanzaElement:IQ];
+
+    self.mobilisRoster = [[MobilisRoster alloc] initWithConnection:self.connectionHandler.connection];
 
     NSError *error = nil;
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Service"];
@@ -228,8 +237,6 @@
     [[LoggingService loggingService] logMessage:@"Service Upload successful" withLevel:LS_INFO];
 
     [_currentSocketConnection readFileWithSize:200488];
-
-//    _currentSocketConnection = nil;
 }
 
 - (void)turnSocketDidFail:(TURNSocket *)sender

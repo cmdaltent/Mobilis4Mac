@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/robbiehanson/XMPPFramework'
   s.author = { 'Robbie Hanson' => 'robbiehanson@deusty.com' }
   s.source = { :git => 'https://github.com/cmdaltent/XMPPFramework.git'}
-  s.resources = [ '**/*.{xcdatamodel,xcdatamodeld}']
+  s.resources = ['**/*.{xcdatamodel,xcdatamodeld}']
 
   s.description = 'XMPPFramework provides a core implementation of RFC-3920 (the xmpp standard), along with
                   the tools needed to read & write XML. It comes with multiple popular extensions (XEPs),
@@ -71,6 +71,7 @@ Pod::Spec.new do |s|
   def s.xmpp_extension(name)
     subspec name do |ss|
       ss.source_files = "Extensions/#{name}/**/*.{h,m}"
+      ss.resources = ["Extensions/#{name}/**/*.{xcdatamodel,xcdatamodeld}"]
       ss.dependency 'XMPPFramework/Core'
       ss.prefix_header_contents = "#define HAVE_XMPP_SUBSPEC_#{name.upcase.sub('-', '_')}"
       yield ss if block_given?
